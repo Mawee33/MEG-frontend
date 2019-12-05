@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./styles/index.css";
 import "./styles/reset.css";
 import "./styles/vetements.css";
+import "./styles/vetement.css";
 import "./styles/lingeries.css";
 import "./styles/menu.css";
 import App from "./App";

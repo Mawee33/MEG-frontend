@@ -23,7 +23,17 @@ const ListeLingeries = props => {
           ) : (
             lingeries.map((l, i) => (
               <ul key={i} className="list-vetements">
-                <li className="item-vetement"><img src={l.image} alt={l.name} className="item-vetement-image" /></li>
+                <li className="item-vetement">
+                <div>
+                  <a href={"/lingeries/" + l._id}>
+                    <img
+                      src={l.image}
+                      alt={l.name}
+                      className="item-vetement-image"
+                    />
+                  </a>
+                </div>
+                    </li>
                 <li className="item-vetement">{l.name}</li>
                 <li className="item-vetement">{l.description}</li>
                 {/* <li className="item-vetement">{l.type}</li>

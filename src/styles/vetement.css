@@ -1,0 +1,21 @@
+
+
+.one-vetements {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.text-vetement {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    text-align: start;
+}
+/* .item-vetement {
+    padding: 20px;
+} */
+
+.one-vetement-image {
+height: 400px;
+}
