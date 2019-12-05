@@ -9,6 +9,7 @@ import Users from "./views/User";
 import History from "./views/History";
 import Fabrication from "./views/Fabrication";
 import ListeVetements from "./views/ListeVetements";
+import ListeLingeries from "./views/ListeLingeries";
 import ShoppingCart from "./views/ShoppingCart";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/users" component={Users} />
         <Route path="/Histoire" component={History} />
         <Route path="/vetements" component={ListeVetements} />
+        <Route path="/lingeries" component={ListeLingeries} />
         <Route path="/Fabrication" component={Fabrication} />
         <Route path="/SearchBar" component={SearchBar} />
         <Route path="/ShoppingCart" component={ShoppingCart} />

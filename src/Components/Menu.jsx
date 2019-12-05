@@ -1,10 +1,10 @@
 import React from 'react'
-import ListeVetements from '../views/ListeVetements'
 
 const Menu = () => {
     return (
-      <div>
-       <a href="/vetements">Vêtements</a>
+      <div className="list-menu">
+       <a href="/vetements" className="item-menu">Vêtements</a>
+       <a href="/lingeries" className="item-menu">Lingerie</a>
       </div>
     );
   };

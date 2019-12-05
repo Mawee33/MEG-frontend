@@ -17,20 +17,20 @@ const ListeVetements = props => {
   return (
     <div>
       <h1>Vetements</h1>
-   <div>
+   <div className="all-vetements">
    {!vetements.length ? (
             <p>Aucun vêtement disponible</p>
           ) : (
             vetements.map((v, i) => (
-              <ul key={i}>
-                <li><img src={v.image} alt={v.name} /></li>
-                <li>{v.name}</li>
-                <li>{v.description}</li>
-                <li>{v.type}</li>
-                <li>{v.color}</li>
-                <li>{v.size}</li>
-                <li>{v.price}</li>
-                <li>{v.quantity}</li>
+              <ul key={i} className="list-vetements">
+                <li className="item-vetement"><img src={v.image} alt={v.name} className="item-vetement-image" /></li>
+                <li className="item-vetement">{v.name}</li>
+                <li className="item-vetement">{v.description}</li>
+                {/* <li className="item-vetement">{v.type}</li>
+                <li className="item-vetement">{v.color}</li> */}
+                {/* <li className="item-vetement">{v.size}</li> */}
+                <li className="item-vetement">{v.price}€</li>
+                {/* <li className="item-vetement" >{v.quantity}</li> */}
                 </ul>
                 ))
           )}

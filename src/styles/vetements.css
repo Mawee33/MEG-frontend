@@ -1,0 +1,21 @@
+.all-vetements {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+.list-vetements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+}
+
+
+/* .item-vetement {
+    padding: 20px;
+} */
+
+.item-vetement-image {
+height: 150px;
+}

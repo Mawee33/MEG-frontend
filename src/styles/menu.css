@@ -1,0 +1,9 @@
+.list-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-menu {
+    text-decoration: none;
+}
+
