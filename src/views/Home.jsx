@@ -1,5 +1,5 @@
 import React from "react";
-const cloudinary = require("./../config/cloudinary");
+// const cloudinary = require("./../config/cloudinary");
 
 const Home = () => {
   return (

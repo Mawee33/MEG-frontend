@@ -1,9 +1,13 @@
 import React from 'react'
+import ListeVetements from '../views/ListeVetements'
 
-export default function Menu() {
+const Menu = () => {
     return (
-        <div>
-            
-        </div>
-    )
-}
+      <div>
+        <h1><ListeVetements/></h1>
+      </div>
+    );
+  };
+  
+  export default Menu;
+
