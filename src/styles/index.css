@@ -17,7 +17,7 @@ body {
   height: 100px;
 }
 .nav-main a {
-  margin-right: 5px;
+  margin-right: 20px;
   color: inherit;
   text-decoration: none;
   display: flex;
@@ -67,7 +67,7 @@ h1 {
 }
 
 .lookbook {
-padding-top: 150px;
+  padding-top: 150px;
 }
 
 h3 {
@@ -117,4 +117,10 @@ h2 {
   align-items: end;
   justify-content: center;
   padding: 14px 14px 0px 14px;
+}
+.transition {
+  margin: 20px;
+}
+.footer {
+  margin: 20px;
 }

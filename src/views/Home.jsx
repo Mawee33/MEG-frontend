@@ -1,5 +1,9 @@
 import React from "react";
 // const cloudinary = require("./../config/cloudinary");
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPinterestP } from "@fortawesome/free-solid-svg-icons";
+// import { faFacebook } from "@fortawesome/free-solid-svg-icons";
+// import { faInstagram } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   return (
@@ -63,6 +67,15 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <footer className="footer">
+        <p>RETROUVEZ-NOUS SUR LES RESEAUX SOCIAUX</p>
+        {/* <FontAwesomeIcon icon={faInstagram} />
+        <p>&nbsp;</p>
+        <FontAwesomeIcon icon={faPinterestP} />
+        <p>&nbsp;</p>
+        <FontAwesomeIcon icon={faFacebook} />
+        <p>&nbsp;</p> */}
+      </footer>
     </div>
   );
 };
