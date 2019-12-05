@@ -14,7 +14,11 @@ body {
 }
 
 .nav-main {
-  height: 100px;
+  height: 70px;
+  margin-top: 20px;
+  margin-left: 20px;
+  /* display: flex;
+ align-items: flex-end; */
 }
 .nav-main a {
   margin-right: 20px;
@@ -33,10 +37,12 @@ body {
 .all-list {
   list-style: none;
   display: flex;
+  align-items: center;
 }
 
 .search {
   border-radius: 20px;
+  border-color: lightgray 0.5px;
 }
 .first-view {
   margin: top 170px;
@@ -80,7 +86,9 @@ h3 {
 h2 {
   text-align: center;
 }
-
+h6 {
+  font-size: large;
+}
 #informations {
   display: grid;
   grid-template-columns: 25% 25% 25%;
@@ -123,4 +131,21 @@ h2 {
 }
 .footer {
   margin: 20px;
+}
+
+#infos-footer {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-column-gap: 5%;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+
+.last-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
 }
