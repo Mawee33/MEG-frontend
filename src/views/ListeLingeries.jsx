@@ -15,8 +15,8 @@ const ListeLingeries = props => {
         })
     }, []);
   return (
-    <div>
-      <h1>Lingerie</h1>
+    <div className="background">
+      <h1 className="title-vetements">Lingerie</h1>
    <div className="all-vetements">
    {!lingeries.length ? (
             <p>Aucune lingerie disponible</p>

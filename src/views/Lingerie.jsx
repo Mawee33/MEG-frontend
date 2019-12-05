@@ -17,6 +17,7 @@ const Lingerie = props => {
       });
   }, []);
   return (
+    <div className="background">
   <ul className="one-vetements">
        <li className="item-vetement">
                     <img
@@ -33,9 +34,10 @@ const Lingerie = props => {
               <li className="item-vetement">taille : <select type="checkbox"><option value="">{lingerie.size} </option></select></li>
               <li className="item-vetement">prix :  {lingerie.price}€</li>
               <li className="item-vetement" >qantité : <select type="checkbox"><option value="">{lingerie.quantity}</option></select></li>
-              <li><button>Ajouter au panier</button></li>
+              <li><button className="button">Ajouter au panier</button></li>
               </div>
   </ul>
+  </div>
   )};
 
 export default Lingerie;

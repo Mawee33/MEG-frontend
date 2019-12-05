@@ -15,8 +15,8 @@ const ListeVetements = props => {
       });
   }, []);
   return (
-    <div>
-      <h1>Vetements</h1>
+    <div className="background">
+      <h1 className="title-vetements">Vetements</h1>
       <div className="all-vetements">
         {!vetements.length ? (
           <p>Aucun vêtement disponible</p>

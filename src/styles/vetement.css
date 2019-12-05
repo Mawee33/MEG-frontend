@@ -1,9 +1,15 @@
 
-
+.background {
+    /* height: 800px; */
+    background-color: #FEE;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+}
 .one-vetements {
     display: flex;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid #455153; */
 }
 
 .text-vetement {
@@ -18,4 +24,12 @@
 
 .one-vetement-image {
 height: 400px;
+}
+
+.button {
+    margin-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+  padding-bottom: 8px;
 }
