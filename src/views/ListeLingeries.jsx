@@ -29,7 +29,7 @@ const ListeLingeries = props => {
                 {/* <li className="item-vetement">{l.type}</li>
                 <li className="item-vetement">{l.color}</li> */}
                 {/* <li className="item-vetement">{l.size}</li> */}
-                <li className="item-vetement">{l.price}</li>
+                <li className="item-vetement">{l.price}€</li>
                 {/* <li className="item-vetement">{l.quantity}</li> */}
                 </ul>
                 ))

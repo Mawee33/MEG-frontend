@@ -10,7 +10,7 @@ const Home = () => {
         src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575532226/MEG/fashion-1031469_1920_ybijwc.jpg"
         alt="dressing"
       /> */}
-        <h1>LOOKBOOK</h1>
+        <h1 className="lookbook">LOOKBOOK</h1>
         <h3>Découvrez notre selection</h3>
       </header>
       <div className="transition">
