@@ -4,7 +4,7 @@ import ListeVetements from '../views/ListeVetements'
 const Menu = () => {
     return (
       <div>
-        <h1><ListeVetements/></h1>
+       <a href="/vetements">Vêtements</a>
       </div>
     );
   };

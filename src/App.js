@@ -14,12 +14,13 @@ import ShoppingCart from "./views/ShoppingCart";
 function App() {
   return (
     <div className="App">
-      <NavMain /><Menu/>
+      <NavMain />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/menu" component={Menu} />
         <Route path="/users" component={Users} />
         <Route path="/Histoire" component={History} />
-        <Route path="/ListeVetements" component={ListeVetements} />
+        <Route path="/vetements" component={ListeVetements} />
         <Route path="/Fabrication" component={Fabrication} />
         <Route path="/SearchBar" component={SearchBar} />
         <Route path="/ShoppingCart" component={ShoppingCart} />
