@@ -1,19 +1,15 @@
 import React from "react";
-// const cloudinary = require("./../config/cloudinary");
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPinterestP } from "@fortawesome/free-solid-svg-icons";
-// import { faFacebook } from "@fortawesome/free-solid-svg-icons";
-// import { faInstagram } from "@fortawesome/free-solid-svg-icons";
+
 
 const Home = () => {
   return (
     <div className="firstView">
       <header>
         {/* <img
-        className="intro"
-        src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575532226/MEG/fashion-1031469_1920_ybijwc.jpg"
-        alt="dressing"
-      /> */}
+          className="intro"
+          src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575532226/MEG/fashion-1031469_1920_ybijwc.jpg"
+          alt="dressing"
+        /> */}
         <h1 className="lookbook">LOOKBOOK</h1>
         <h3>Découvrez notre selection</h3>
       </header>
@@ -67,33 +63,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <footer className="footer">
-        <p>RETROUVEZ-NOUS SUR LES RESEAUX SOCIAUX</p>
-        {/* <FontAwesomeIcon icon={faInstagram} />
-        <p>&nbsp;</p>
-        <FontAwesomeIcon icon={faPinterestP} />
-        <p>&nbsp;</p>
-        <FontAwesomeIcon icon={faFacebook} />
-        <p>&nbsp;</p> */}
-        <div id="infos-footer">
-          <div class="last-info">
-            <h6>LIVRAISON</h6>
-            <p className="legal">Au choix : Colissimo ou Chronopost</p>
-          </div>
-          <div class="last-info">
-            <h6>PAIEMENT</h6>
-            <p className="legal">100% sécurisé CB ou PayPal</p>
-          </div>
-          <div class="last-info">
-            <h6>RETOURS</h6>
-            <p className="legal">Satisfait ou remboursé </p>
-          </div>
-          <div class="last-info">
-            <h6>FRAIS DE PORT</h6>
-            <p className="legal">Offerts à partir de 80€ d'achat (France)</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };

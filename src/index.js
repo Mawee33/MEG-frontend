@@ -9,7 +9,9 @@ import "./styles/menu.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+library.add(fab);
 ReactDOM.render(
   <BrowserRouter>
     <App />

@@ -13,6 +13,7 @@ import ListeLingeries from "./views/ListeLingeries";
 import ShoppingCart from "./views/ShoppingCart";
 import Vetement from "./views/Vetement";
 import Lingerie from "./views/Lingerie";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/SearchBar" component={SearchBar} />
         <Route path="/ShoppingCart" component={ShoppingCart} />
       </Switch>
+      <Footer />
     </div>
   );
 }
