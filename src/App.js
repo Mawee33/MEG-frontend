@@ -13,6 +13,7 @@ import ListeLingeries from "./views/ListeLingeries";
 import ShoppingCart from "./views/ShoppingCart";
 import Vetement from "./views/Vetement";
 import Lingerie from "./views/Lingerie";
+import FilteredProduct from "./components/FilteredProduct";
 import Footer from "./components/Footer";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Fabrication" component={Fabrication} />
         <Route path="/SearchBar" component={SearchBar} />
         <Route path="/ShoppingCart" component={ShoppingCart} />
+        <Route path="/FilteredProduct" component={FilteredProduct} />
       </Switch>
       <Footer />
     </div>
