@@ -13,6 +13,7 @@ import ListeLingeries from "./views/ListeLingeries";
 import ShoppingCart from "./views/ShoppingCart";
 import Vetement from "./views/Vetement";
 import Lingerie from "./views/Lingerie";
+import Cart from "./views/Cart";
 import Footer from "./components/Footer";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/vetements/:id" component={Vetement} />
         <Route exact path="/lingeries" component={ListeLingeries} />
         <Route path="/lingeries/:id" component={Lingerie} />
+        <Route path="/vetements/:id" component={Cart} />
         <Route path="/Fabrication" component={Fabrication} />
         <Route path="/SearchBar" component={SearchBar} />
         <Route path="/ShoppingCart" component={ShoppingCart} />

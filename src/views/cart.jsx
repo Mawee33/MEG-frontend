@@ -5,12 +5,12 @@ const Cart = props => {
   console.log(props);
   const vetementId = props.match.params.id;
 
-  const [vetement, setVetement] = useState({});
+  const [vetement, setCart] = useState({});
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_BACKEND_URL + "/vetements/" + vetementId)
       .then(res => {
-        setVetement(res.data);
+        setCart(res.data);
       })
       .catch(err => {
         console.log(err);

@@ -38,25 +38,29 @@ const Vetement = props => {
           <li className="item-vetement">couleur : {vetement.color}</li>
           <li className="item-vetement">
             taille :
+            {vetement.length < 2 ? (<select type="checkbox">{vetement.size}</select>
+            )  : (
             <select type="checkbox">
               {vetement.size
                 .sort((a, b) => a - b)
                 .map((size, i) => (
                   <option key={i}>{size}</option>
                 ))}
-            </select>
+            </select>)}
           </li>
           <li className="item-vetement">prix : {vetement.price}€</li>
           <li className="item-vetement">
             quantité :
+            {vetement.length < 2 ? (<select type="checkbox">{vetement.quantity}</select>
+            )  : (
             <select type="checkbox">
               {vetement.quantity
                 .sort((a, b) => a - b)
                 .map((quantity, i) => (
                   <option key={i}>{quantity}</option>
-                ))}
-            </select>
-          </li>
+              ))}
+            </select>)
+            } </li>
           <li>
             <button className="button">Ajouter au panier</button>
           </li>
