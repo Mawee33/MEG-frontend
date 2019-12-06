@@ -44,7 +44,7 @@ const NavMain = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/shopping-cart">
+            <NavLink to="/ShoppingCart">
               <FontAwesomeIcon icon={faShoppingCart} />
               <p>&nbsp;</p>
               Panier
