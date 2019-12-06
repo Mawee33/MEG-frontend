@@ -11,7 +11,7 @@ const Home = () => {
           alt="dressing"
         /> */}
         <h1 className="lookbook">LOOKBOOK</h1>
-        <h3>Découvrez notre selection</h3>
+        <h2 className="soustitre">Découvrez notre selection</h2>
       </header>
       <div className="transition">
         <h2>SUIVEZ-NOUS</h2>

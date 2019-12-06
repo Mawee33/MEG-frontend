@@ -76,11 +76,13 @@ h1 {
   padding-top: 150px;
 }
 
-h3 {
+.soustitre {
   text-align: right;
   color: black;
   font-weight: lighter;
-  padding-right: 40px;
+  font-size: 40px;
+  padding-right: 140px;
+  padding-top: 270px;
 }
 
 h2 {
