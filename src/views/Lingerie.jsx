@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 const Lingerie = props => {
   console.log(props);
   const lingerieId = props.match.params.id;
@@ -14,6 +15,9 @@ const Lingerie = props => {
         console.log(err);
       });
   }, []);
+
+  if (!lingerie) return <p>Pas de lingerie</p>;
+
   return (
     <div className="background">
       <ul className="one-vetements">
