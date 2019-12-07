@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const ListeVetements = props => {
   const [vetements, setVetements] = useState([]);
@@ -41,6 +43,18 @@ const ListeVetements = props => {
               {/* <li className="item-vetement">{v.size}</li> */}
               <li className="item-vetement">{v.price}€</li>
               {/* <li className="item-vetement" >{v.quantity}</li> */}
+              <div class="card-img-overlay d-flex justify-content-end align-items-end">
+                <button
+                  type="button"
+                  class="btn btn-light rounded-circle"
+                  data-toggle="button"
+                  aria-pressed="false"
+                  autocomplete="off"
+                >
+                  <FontAwesomeIcon icon={faHeart} />
+                  {/* <i class="far fa-heart"></i> */}
+                </button>
+              </div>
             </ul>
           ))
         )}
