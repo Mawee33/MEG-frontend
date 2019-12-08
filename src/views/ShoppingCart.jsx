@@ -2,11 +2,13 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 const ShoppingCart = props => {
+    console.log(props.cart)
+    const vetementId = props.match.params.id;
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
         axios
-        .get(process.env.REACT_APP_BACKEND_URL + "/ShoppingCart")
+        .get(process.env.REACT_APP_BACKEND_URL + "/ShoppingCart" + vetementId)
         .then(res => {
             setCart(res.data);
         })
@@ -17,6 +19,7 @@ const ShoppingCart = props => {
   return (
     <div className="background">
       <h1 className="title-vetements">Panier</h1>
+      {JSON.stringify(props.cart)}
    <div className="all-vetements">
    {!cart.length ? (
             <p>Aucune article dans le panier</p>

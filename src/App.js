@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import NavMain from "./components/NavMain";
@@ -13,10 +13,12 @@ import ListeLingeries from "./views/ListeLingeries";
 import ShoppingCart from "./views/ShoppingCart";
 import Vetement from "./views/Vetement";
 import Lingerie from "./views/Lingerie";
+import NotFound from "./views/NotFound";
 import FilteredProduct from "./components/FilteredProduct";
 import Footer from "./components/Footer";
 
 function App() {
+  const [cart, setCart] = useState([{ toto: "salut" }]);
   return (
     <div className="App">
       <NavMain />
@@ -26,13 +28,24 @@ function App() {
         <Route path="/users" component={Users} />
         <Route path="/Histoire" component={History} />
         <Route exact path="/vetements" component={ListeVetements} />
-        <Route path="/vetements/:id" component={Vetement} />
+        <Route
+          path="/vetements/:id"
+          render={props => (
+            <Vetement handleCart={setCart} cart={cart} {...props} />
+          )}
+        />
         <Route exact path="/lingeries" component={ListeLingeries} />
         <Route path="/lingeries/:id" component={Lingerie} />
         <Route path="/Fabrication" component={Fabrication} />
         <Route path="/SearchBar" component={SearchBar} />
-        <Route path="/ShoppingCart" component={ShoppingCart} />
+        <Route
+          path="/ShoppingCart"
+          render={props => (
+            <ShoppingCart handleCart={setCart} cart={cart} {...props} />
+          )}
+        />
         <Route path="/FilteredProduct" component={FilteredProduct} />
+        <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
     </div>

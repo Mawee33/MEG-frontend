@@ -3,8 +3,11 @@ import axios from "axios";
 
 const Vetement = props => {
   const vetementId = props.match.params.id;
-
+    console.log(props.cart)
   const [vetement, setVetement] = useState(null);
+  const [size,setSize] = useState(null);
+  const [qty, setQty] = useState(1);
+//   const [cart, setCart] = useState([]);
   const [formValues, setFormValues] = useState({});
   const selectRef = useRef();
 
@@ -13,39 +16,49 @@ const Vetement = props => {
       .get(process.env.REACT_APP_BACKEND_URL + "/vetements/" + vetementId)
       .then(res => {
         setVetement(res.data);
+        setSize(res.data.size[0])
       })
       .catch(err => {
         console.log(err);
       });
   }, []);
 
-
   const handleSubmit = e => {
-    console.log(formValues + "ok");
+    e.preventDefault();
+    const myCart = {
+        vetement: vetement,
+        size: size,
+        quantity: qty
+    }
+    localStorage.setItem("cart", JSON.stringify(myCart));
+    const getMyCart = localStorage.getItem(myCart);
+    // localStorage.removeItem(myCart);
+    // localStorage.clear();
+    const copy = [...props.cart];
+    copy.push(getMyCart);
+    props.handleCart(copy)
+   props.history.push("/ShoppingCart");
+  };
 
-e.preventDefault();
-if(!formValues.vetement) {
-    formValues.vetement = selectRef.current.value;
-}
-axios
-.post(process.env.REACT_APP_BACKEND_URL + "/ShoppingCart", formValues)
-.then(res => {
-    props.history.push("/ShoppingCart");
-})
-.catch(err => {
-    console.log(err);
-})
-}
-
-const handleChange = e => {
-console.log(formValues + "ok");
-setFormValues({...formValues, [e.target.name]: e.target.value});
-}
-
+  const handleChange = e => {
+      if(e.target.name === "size"){
+        setSize(e.target.value)
+      }else setQty(e.target.value)
+    console.log("here", e.target.value);
+    console.log(e.target. name)
+    // let size = e.target.size;
+    // let quantity = e.target.quantity;
+ 
+    // setState({vetement:{...vetement, }})
+  };
   if (!vetement) return <p>Pas de vetement</p>;
 
   return (
-    <div className="background">
+    <form
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      className="background"
+    >
       <ul className="one-vetements">
         <li className="item-vetement">
           <img
@@ -63,35 +76,39 @@ setFormValues({...formValues, [e.target.name]: e.target.value});
           <li className="item-vetement">couleur : {vetement.color}</li>
           <li className="item-vetement">
             taille :
-            {vetement.length < 2 ? (<select type="checkbox">{vetement.size}</select>
-            )  : (
-            <select type="checkbox">
-              {vetement.size
-                .sort((a, b) => a - b)
-                .map((size, i) => (
-                  <option key={i}>{size}</option>
-                ))}
-            </select>)}
+            {vetement.length < 2 ? (
+              <select type="checkbox">{vetement.size}</select>
+            ) : (
+              <select name="size" type="checkbox">
+                {vetement.size
+                  .sort((a, b) => a - b)
+                  .map((size, i) => (
+                    <option key={i}>{size}</option>
+                  ))}
+              </select>
+            )}
           </li>
           <li className="item-vetement">prix : {vetement.price}€</li>
           <li className="item-vetement">
             quantité :
-            {vetement.length < 2 ? (<select type="checkbox">{vetement.quantity}</select>
-            )  : (
-            <select type="checkbox">
-              {vetement.quantity
-                .sort((a, b) => a - b)
-                .map((quantity, i) => (
-                  <option key={i}>{quantity}</option>
-              ))}
-            </select>)
-            } </li>
+            {vetement.length < 2 ? (
+              <select type="checkbox">{vetement.quantity}</select>
+            ) : (
+              <select name="quantity" type="checkbox">
+                {vetement.quantity
+                  .sort((a, b) => a - b)
+                  .map((quantity, i) => (
+                    <option key={i}>{quantity}</option>
+                  ))}
+              </select>
+            )}{" "}
+          </li>
           <li>
-            <button className="button"  onSubmit={handleSubmit} onChange={handleChange}>Ajouter au panier</button>
+            <button className="button">Ajouter au panier</button>
           </li>
         </div>
       </ul>
-    </div>
+    </form>
   );
 };
 
