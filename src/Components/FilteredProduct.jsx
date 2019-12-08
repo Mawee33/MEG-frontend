@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 import axios from "axios";
-import Vetement from "./views/Vetement";
+// import Vetement from "./views/Vetement";
 import SearchBar from "./SearchBar";
 
 const FilteredProduct = () => {
