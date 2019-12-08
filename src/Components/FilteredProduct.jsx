@@ -1,58 +1,43 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
+import React, { Component} from "react";
+import Vetement from "./views/Vetement";
+import SearchBar from "./SearchBar";
 
-const FilteredProduct = () => {
-const searchQuery = e.target.value;
-const [...this.props.vetements] = useState();
-useEffect(() => {
-  axios
-  .get(process.env.REACT_APP_BACKEND_URL + "/lingeries/" + "/vetements/" + lingerieId + vetementId)
-  .then(res => {
-    setProduct(res.data);
-  })
-  .catch(err => {
-    console.log(err)
-  });
-}, []);
+export default class FilteredProduct extends Component {
+state = {vetements: [...this.props.vetements] };
 
-if (!lingerie)  return <p>Pas de lingerie</p>;
+favoriteProducts = e => {
+  const searchQuery = e.target.value;
+}
+  this.setState({ products: favoriteProducts });
+
+  render() {
+
   return (
     <div>
       <p>Affinez votre recherche</p>
       <table className="table">
-        <thead>
-          <tr>
-            <th>Couleur</th>
-            <th>Taille</th>
-            <th>Prix</th>
-          </tr>
-        </thead>
+        {this.props.vetements.map((v, i) => (
+          <SearchBar clbk={this.favoriteProducts} />
+          <Vetement 
+          key={i}
+          name={v.name}
+          image={v.image}
+          description={v.description}
+          size={v.size}
+          color={v.color} />
+        ))}
+        {/* // <thead>
+        //   <tr>
+               <th>Nom</th>
+               <th>Description</th>
+        //     <th>Couleur</th>
+        //     <th>Taille</th>
+        //     <th>Prix</th>
+        //   </tr>
+        // </thead> */}
       </table>
     </div>
   );
 };
 
 export default FilteredProduct;
-
-
-state = {foods: [...this.props.foods] };
-
-  filterFoods = e => {
-    const searchQuery = e.target.value;
-  }
-  this.setState({ products: filterFoods });
-
-  render() {
-    return (
-      <div>
-        {this.props.foods.map((f, i) => (
-          <SearchBar clbk={this.filterFoods}/>
-          <Food
-            key={i}
-            name={f.name}
-            calories={f.calories}
-            image={f.image}
-            quantity={f.quantity}
-          />
-        ))}
-      </div>

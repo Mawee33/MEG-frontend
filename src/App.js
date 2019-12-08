@@ -16,6 +16,11 @@ import Lingerie from "./views/Lingerie";
 import FilteredProduct from "./components/FilteredProduct";
 import Footer from "./components/Footer";
 
+// auth
+import { useAuth } from "./auth/useAuth";
+import UserContext from "./auth/UserContext";
+import { ProtectedRoute } from "./auth/ProtectedRoute";
+
 function App() {
   return (
     <div className="App">
