@@ -1,8 +1,8 @@
-import React, { useState, use } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import UserContext from "./../auth/UserContext";
-import APIHandler from "./../api/handler";
+import APIHandler from "./../api/APIHandler";
 
 export default function Signin(props) {
   const [email, setEmail] = useState("meg@meg.com");

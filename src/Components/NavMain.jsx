@@ -37,7 +37,7 @@ const NavMain = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login">
+            <NavLink to="/signin">
               <FontAwesomeIcon icon={faUser} />
               <p>&nbsp;</p>
               Connectez-vous
