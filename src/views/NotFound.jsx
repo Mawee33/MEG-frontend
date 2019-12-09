@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function Page404() {
   return (
-    <div>
-      Oh non !!!
+    <div className="quatrecentquatre">
       <br />
-      Mauvaise route :( <br />
-      Retournez à &nbsp;<Link to="/">Cette page</Link>
+      <br />
+      Oh non !!! Mauvaise route :(
+      <br /> Retournez à &nbsp;
+      <Link to="/">la page d'accueil</Link>
     </div>
   );
 }

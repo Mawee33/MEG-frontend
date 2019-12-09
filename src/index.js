@@ -6,6 +6,7 @@ import "./styles/vetements.css";
 import "./styles/vetement.css";
 import "./styles/lingeries.css";
 import "./styles/menu.css";
+import "./styles/notfound.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
