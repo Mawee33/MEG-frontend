@@ -3,11 +3,11 @@ import axios from "axios";
 
 const Vetement = props => {
   const vetementId = props.match.params.id;
-    console.log(props.cart)
+  console.log(props.cart);
   const [vetement, setVetement] = useState(null);
-  const [size,setSize] = useState(null);
+  const [size, setSize] = useState(null);
   const [qty, setQty] = useState(1);
-//   const [cart, setCart] = useState([]);
+  //   const [cart, setCart] = useState([]);
   const [formValues, setFormValues] = useState({});
   const selectRef = useRef();
 
@@ -16,7 +16,7 @@ const Vetement = props => {
       .get(process.env.REACT_APP_BACKEND_URL + "/vetements/" + vetementId)
       .then(res => {
         setVetement(res.data);
-        setSize(res.data.size[0])
+        setSize(res.data.size[0]);
       })
       .catch(err => {
         console.log(err);
@@ -26,29 +26,29 @@ const Vetement = props => {
   const handleSubmit = e => {
     e.preventDefault();
     const myCart = {
-        vetement: vetement,
-        size: size,
-        quantity: qty
-    }
-    localStorage.setItem("cart", JSON.stringify(myCart));
-    const getMyCart = localStorage.getItem(myCart);
-    // localStorage.removeItem(myCart);
-    // localStorage.clear();
-    const copy = [...props.cart];
-    copy.push(getMyCart);
-    props.handleCart(copy)
-   props.history.push("/ShoppingCart");
+      vetement: vetement,
+      size: size,
+      quantity: qty
+    };
+    // localStorage.setItem("cart", JSON.stringify(myCart));
+    props.handleCart(myCart);
+    // const copy = [...props.cart];
+    // copy.push(myCart);
+    // props.handleCart(copy);
+    // console.log(copy)
+    // localStorage.setItem("cart", JSON.stringify(copy));
+    // props.history.push("/ShoppingCart");
   };
 
   const handleChange = e => {
-      if(e.target.name === "size"){
-        setSize(e.target.value)
-      }else setQty(e.target.value)
+    if (e.target.name === "size") {
+      setSize(e.target.value);
+    } else setQty(e.target.value);
     console.log("here", e.target.value);
-    console.log(e.target. name)
+    console.log(e.target.name);
     // let size = e.target.size;
     // let quantity = e.target.quantity;
- 
+
     // setState({vetement:{...vetement, }})
   };
   if (!vetement) return <p>Pas de vetement</p>;

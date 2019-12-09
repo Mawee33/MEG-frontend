@@ -23,10 +23,25 @@ import UserContext from "./auth/UserContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute";
 
 function App() {
-  const [cart, setCart] = useState([{ toto: "salut" }]);
+  const [cart, setCart] = useState([]);
+
+  useEffect(() =>{
+    const localCart = localStorage.getItem("cart");
+    if(localCart !== null){
+        setCart(JSON.parse(localCart))
+    }
+  }, [] )
+
+  const handleCart = value => {
+    const copy = [...cart];
+    copy.push(value);
+    localStorage.setItem("cart", JSON.stringify(copy));
+    setCart(copy);
+  };
+
   return (
     <div className="App">
-      <NavMain />
+      <NavMain  />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/menu" component={Menu} />
@@ -36,7 +51,7 @@ function App() {
         <Route
           path="/vetements/:id"
           render={props => (
-            <Vetement handleCart={setCart} cart={cart} {...props} />
+            <Vetement handleCart={handleCart} cart={cart} {...props} />
           )}
         />
         <Route exact path="/lingeries" component={ListeLingeries} />
@@ -46,7 +61,7 @@ function App() {
         <Route
           path="/ShoppingCart"
           render={props => (
-            <ShoppingCart handleCart={setCart} cart={cart} {...props} />
+            <ShoppingCart handleCart={handleCart} cart={cart} {...props} />
           )}
         />
         <Route path="/FilteredProduct" component={FilteredProduct} />
