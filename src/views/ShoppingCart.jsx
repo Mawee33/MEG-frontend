@@ -24,7 +24,7 @@ const ShoppingCart = ({ cart , match}) => {
 
    <div className="all-vetements">
    {!cart.length ? (
-            <p>Aucune article dans le panier</p>
+            <p>Aucun article dans le panier</p>
           ) : (
             cart.map((c, i) => (
               <ul key={i} className="list-vetements">
@@ -43,9 +43,9 @@ const ShoppingCart = ({ cart , match}) => {
                 <li className="item-vetement">{c.vetement.description}</li>
                 {/* <li className="item-vetement">{l.type}</li>
                 <li className="item-vetement">{l.color}</li> */}
-                <li className="item-vetement">{c.vetement.size}</li>
+                <li className="item-vetement">{c.size}</li>
                 <li className="item-vetement">{c.vetement.price}€</li>
-                <li className="item-vetement">{c.vetement.quantity}</li>
+                <li className="item-vetement">{c.quantity}</li>
                 </ul>
                 ))
           )}
