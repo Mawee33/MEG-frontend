@@ -36,8 +36,8 @@ const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
     // console.log(index);
   };
 
-  const handleSubmitBis = i => {
-    // e.preventDefault();
+  const handleSubmitBis = (i)=> {
+    // e.preventDefault()
     handleQuantity(i);
     // console.log(index);
   };
@@ -94,17 +94,34 @@ const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
                   Supprimer
                 </button>
               </li>
+              <li>Total :  
+         
+          <div key={i} className="list-vetements">
+          <div className="item-vetement">
+          {c.vetement.price * c.quantity}€
+          </div>
+          </div>
+         </li>
             </ul>
           ))
         )}
       </div>
       <div className="totalCase">
       <h2 className="total">Total</h2>
-      {/* <p>
-       {cart.map((c, i) => {
-<p>{c.cart.price}</p>
-       })}
-      </p> */}
+      {!Boolean(cart.length) ? (
+          <p>0€</p>
+        )  : (
+          cart.reduce((sum,curr)=> {
+return sum += (curr.vetement.price * curr.quantity)
+          },0)
+          // cart.map((c, i) => (
+          // <div key={i} className="list-vetements">
+          // <div className="item-vetement">
+          // {c.vetement.price * c.quantity}
+          // </div>
+          // </div>
+          // )) 
+        )}
       </div>
     </div>
   );
