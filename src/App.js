@@ -20,6 +20,7 @@ import FilteredProduct from "./components/FilteredProduct";
 import Footer from "./components/Footer";
 import SignUp from "./views/Signup";
 import SignIn from "./views/Signin";
+import searchResults from "./components/SearchResults";
 
 // auth
 import { useAuth } from "./auth/useAuth";
@@ -29,6 +30,7 @@ import { ProtectedRoute } from "./auth/ProtectedRoute";
 function App() {
   const [cart, setCart] = useState([]);
   const { isLoading } = useAuth();
+  const [searchResults, setSearchResults] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
@@ -38,6 +40,11 @@ function App() {
     }
   }, []);
 
+  const handleSearchResults = results => {
+    if (!results) return setSearchResults([]);
+    if (!results.vetements.length || results.lingeries.length)
+      return setSearchResults(results);
+  };
   const handleCart = value => {
     const copy = [...cart];
     copy.push(value);
@@ -87,7 +94,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
-
           <Route path="/users" component={Users} />
           <Route path="/Histoire" component={History} />
           <Route exact path="/vetements" component={ListeVetements} />
