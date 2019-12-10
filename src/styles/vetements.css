@@ -50,3 +50,28 @@
   color: white;
   content: "";
 }
+
+/* .total {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid white;
+  background-color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  margin-left: 20px;
+} */
+
+.totalCase {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid white;
+  background-color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  margin-left: 20px;
+}

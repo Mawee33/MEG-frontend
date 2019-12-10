@@ -60,17 +60,21 @@ function App() {
   //     setCurrentUser
   //   };
 
-  const handleDelete = id => {
-    console.log(id);
-    axios
-      .delete(process.env.REACT_APP_BACKEND_URL + "/shoppingCart/" + id)
-      .then(res => {
-        const copy = cart.filter(a => a._id !== id);
-        setCart(copy);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  const handleDelete = index => {
+    console.log(index);
+    const filteredCart = cart.filter((item, i) => i !== index);
+    setCart(filteredCart);
+    localStorage.setItem("cart", JSON.stringify(filteredCart));
+  };
+
+  const handleQuantity = i => {
+    const modifiedQuantity = cart.map(prod => {
+      prod.quantity -= 1;
+      return prod;
+    });
+    console.log("modifed", modifiedQuantity);
+    setCart(modifiedQuantity);
+    localStorage.setItem("cart", JSON.stringify(modifiedQuantity));
   };
 
   return isLoading ? (
@@ -98,7 +102,13 @@ function App() {
           <Route
             path="/ShoppingCart"
             render={props => (
-              <ShoppingCart handleCart={handleCart} handleDelete={handleDelete} cart={cart} {...props} />
+              <ShoppingCart
+                handleCart={handleCart}
+                handleDelete={handleDelete}
+                handleQuantity={handleQuantity}
+                cart={cart}
+                {...props}
+              />
             )}
           />
           <Route path="/FilteredProduct" component={FilteredProduct} />

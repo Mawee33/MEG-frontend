@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import apiHandler from "../api/APIHandler";
 
-const ShoppingCart = ({ cart, match }) => {
+const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
   console.log(cart);
   const vetementId = match.params.id;
-  const [ressources, setRessources] = useState([]);
 
   // useEffect(() => {
   //   axios
@@ -31,21 +30,34 @@ const ShoppingCart = ({ cart, match }) => {
   //     })
   // }, []);
 
-const handleSubmit = e => {
-  // e.preventDefault();
-  cart.handleDelete(cart);
-}
+  const handleSubmit = index => {
+    // e.preventDefault();
+    handleDelete(index);
+    // console.log(index);
+  };
 
+  const handleSubmitBis = i => {
+    // e.preventDefault();
+    handleQuantity(i);
+    // console.log(index);
+  };
+
+  // return null;
   return (
     <div className="background">
       <h1 className="title-vetements">Panier</h1>
 
       <div className="all-vetements">
-        {!cart.length ? (
+        {!Boolean(cart.length) ? (
           <p>Aucun article dans le panier</p>
         ) : (
           cart.map((c, i) => (
             <ul key={i} className="list-vetements">
+              {/* <li>
+                <pre style={{"whiteSpace": "pre-wrap"}}>
+                {JSON.stringify(c)}
+                </pre>
+              </li> */}
               <li className="item-vetement">
                 <div>
                   <a href={"/cart/" + c._id}>
@@ -64,12 +76,19 @@ const handleSubmit = e => {
               <li className="item-vetement">{c.size}</li>
               <li className="item-vetement">{c.vetement.price}€</li>
               <li className="item-vetement">
-                {c.quantity} <button>x</button>
+                {c.quantity}{" "}
+                <button
+                  onClick={() => {
+                    handleSubmitBis(i);
+                  }}
+                >
+                  x
+                </button>
               </li>
               <li>
                 <button
                   onClick={() => {
-                    handleSubmit(c.vetement._id);
+                    handleSubmit(i);
                   }}
                 >
                   Supprimer
@@ -78,6 +97,14 @@ const handleSubmit = e => {
             </ul>
           ))
         )}
+      </div>
+      <div className="totalCase">
+      <h2 className="total">Total</h2>
+      {/* <p>
+       {cart.map((c, i) => {
+<p>{c.cart.price}</p>
+       })}
+      </p> */}
       </div>
     </div>
   );
