@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import Dropdown from "./Dropdown";
 
 const NavMain = () => {
   return (
     <nav className="nav-main">
-      <ul className="all-list">
-        <div className="nav-menu">
+      <Dropdown />
+      <div className="all-list">
+        {/* <div className="nav-menu">
           <li>
             <NavLink to="/menu">
               <FontAwesomeIcon icon={faBars} />
@@ -17,41 +19,36 @@ const NavMain = () => {
               Menu
             </NavLink>
           </li>
-        </div>
-        <div className="logo">
-          <li>
+        </div> */}
+
+        <div className="nav-end">
+          <div className="logo">
             <NavLink exact to="/">
               <img
                 src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575623422/MEG/Text_logo_xtajgv.jpg"
                 alt="MEG"
               />
             </NavLink>
-          </li>
+          </div>
+          <NavLink to="/search-bar">
+            <FontAwesomeIcon icon={faSearch} />
+            <p>&nbsp;</p>
+            <input className="search" type="text" />
+          </NavLink>
+
+          <NavLink to="/signin">
+            <FontAwesomeIcon icon={faUser} />
+            <p>&nbsp;</p>
+            Connectez-vous
+          </NavLink>
+
+          <NavLink to="/ShoppingCart">
+            <FontAwesomeIcon icon={faShoppingCart} />
+            <p>&nbsp;</p>
+            Panier
+          </NavLink>
         </div>
-        <div className="nav-end">
-          <li>
-            <NavLink to="/search-bar">
-              <FontAwesomeIcon icon={faSearch} />
-              <p>&nbsp;</p>
-              <input className="search" type="text" />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/signin">
-              <FontAwesomeIcon icon={faUser} />
-              <p>&nbsp;</p>
-              Connectez-vous
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/ShoppingCart">
-              <FontAwesomeIcon icon={faShoppingCart} />
-              <p>&nbsp;</p>
-              Panier
-            </NavLink>
-          </li>
-        </div>
-      </ul>
+      </div>
     </nav>
   );
 };

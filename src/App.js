@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import axios from "axios";
 import NavMain from "./components/NavMain";
 import Menu from "./components/Menu";
+import Dropdown from "./components/Dropdown";
 import SearchBar from "./components/SearchBar";
 import Home from "./views/Home";
 import Users from "./views/User";
@@ -82,6 +83,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
+
           <Route path="/users" component={Users} />
           <Route path="/Histoire" component={History} />
           <Route exact path="/vetements" component={ListeVetements} />
@@ -98,7 +100,12 @@ function App() {
           <Route
             path="/ShoppingCart"
             render={props => (
-              <ShoppingCart handleCart={handleCart} handleDelete={handleDelete} cart={cart} {...props} />
+              <ShoppingCart
+                handleCart={handleCart}
+                handleDelete={handleDelete}
+                cart={cart}
+                {...props}
+              />
             )}
           />
           <Route path="/FilteredProduct" component={FilteredProduct} />
