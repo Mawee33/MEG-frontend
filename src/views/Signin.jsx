@@ -17,6 +17,7 @@ export default function Signin(props) {
       setCurrentUser(apiRes.data.currentUser);
       props.history.push("/dashboard");
     } catch (err) {
+      console.log(err);
       setCurrentUser(null);
     }
   };
@@ -24,9 +25,9 @@ export default function Signin(props) {
   return (
     <React.Fragment>
       <form className="form" onSubmit={handleSubmit}>
-        <h1 className="title">Connectez-vous</h1>
+        <h3 className="connection">Connectez-vous</h3>
         <label className="label" htmlFor="email">
-          email
+          Email
         </label>
         <input
           className="input"
@@ -50,7 +51,7 @@ export default function Signin(props) {
       <p className="parag">
         Créer votre compte client{" "}
         <Link to="/signup" className="link">
-          signup
+          Ici
         </Link>
       </p>
     </React.Fragment>
