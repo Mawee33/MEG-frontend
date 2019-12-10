@@ -65,7 +65,6 @@ export default class Signup extends Component {
           <label className="label" htmlFor="password">
             Votre mot de passe
           </label>
-
           <input
             className="input"
             id="password"
