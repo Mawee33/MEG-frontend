@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
+import axios from "axios";
 import NavMain from "./components/NavMain";
 import Menu from "./components/Menu";
 import SearchBar from "./components/SearchBar";
@@ -59,6 +60,19 @@ function App() {
   //     setCurrentUser
   //   };
 
+  const handleDelete = id => {
+    console.log(id);
+    axios
+      .delete(process.env.REACT_APP_BACKEND_URL + "/shoppingCart/" + id)
+      .then(res => {
+        const copy = cart.filter(a => a._id !== id);
+        setCart(copy);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return isLoading ? (
     <div>loading...</div>
   ) : (
@@ -84,7 +98,7 @@ function App() {
           <Route
             path="/ShoppingCart"
             render={props => (
-              <ShoppingCart handleCart={handleCart} cart={cart} {...props} />
+              <ShoppingCart handleCart={handleCart} handleDelete={handleDelete} cart={cart} {...props} />
             )}
           />
           <Route path="/FilteredProduct" component={FilteredProduct} />

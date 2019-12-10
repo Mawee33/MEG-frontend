@@ -18,8 +18,8 @@ const Home = () => {
         <h4>#lesminettesengoguette</h4>
       </div>
       <section id="informations">
-        <div class="informations">
-          <div class="infoImg">
+        <div className="informations">
+          <div className="infoImg">
             <img
               src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575532200/MEG/people-2589862_1920_cocya2.jpg"
               alt="Nos produits"
