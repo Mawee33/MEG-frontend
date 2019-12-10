@@ -70,7 +70,12 @@ function App() {
 
   const handleQuantity = index=> {
     const modifiedQuantity = cart.map((prod, i)=> {
-      if(i ===   index ) prod.quantity -= 1
+      if (prod.quantity < 1) {
+        const filteredCart = cart.filter((item, i) => i !== index);
+        setCart(filteredCart);
+        localStorage.setItem("cart", JSON.stringify(filteredCart));
+      }
+    else if(i ===   index ) prod.quantity -= 1
       return prod;  
     });
     console.log("modifed", modifiedQuantity);
