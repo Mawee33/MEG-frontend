@@ -75,10 +75,10 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(filteredCart));
   };
 
-  const handleQuantity = i => {
-    const modifiedQuantity = cart.map(prod => {
-      prod.quantity -= 1;
-      return prod;
+  const handleQuantity = index=> {
+    const modifiedQuantity = cart.map((prod, i)=> {
+      if(i ===   index ) prod.quantity -= 1
+      return prod;  
     });
     console.log("modifed", modifiedQuantity);
     setCart(modifiedQuantity);
