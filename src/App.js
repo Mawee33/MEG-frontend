@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
-import NavMain from "./components/NavMain";
 import Menu from "./components/Menu";
 import Dropdown from "./components/Dropdown";
 import SearchBar from "./components/SearchBar";
@@ -19,7 +18,11 @@ import NotFound from "./views/NotFound";
 import Footer from "./components/Footer";
 import SignUp from "./views/Signup";
 import SignIn from "./views/Signin";
-import searchResults from "./components/SearchResults";
+
+//partials
+import HeaderMain from "./components/HeaderMain";
+import SearchResults from "./components/SearchResults";
+import NavMobile from "./components/NavMobile";
 
 // auth
 import { useAuth } from "./auth/useAuth";
@@ -29,8 +32,9 @@ import { ProtectedRoute } from "./auth/ProtectedRoute";
 function App() {
   const [cart, setCart] = useState([]);
   const { isLoading } = useAuth();
-  const [searchResults, setSearchResults] = useState([]);
+  const [SearchResults, setSearchResults] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
+  const [navMobileStatus, setNavMobileStatus] = useState(false);
 
   useEffect(() => {
     const localCart = localStorage.getItem("cart");
@@ -39,11 +43,16 @@ function App() {
     }
   }, []);
 
+  const handleNavMobileStatus = () => {
+    setNavMobileStatus(!navMobileStatus);
+  };
+
   const handleSearchResults = results => {
     if (!results) return setSearchResults([]);
     if (!results.vetements.length || results.lingeries.length)
       return setSearchResults(results);
   };
+
   const handleCart = value => {
     const copy = [...cart];
     copy.push(value);
@@ -92,15 +101,24 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(modifiedQuantity));
   };
 
-  return isLoading ? (
-    <div>loading...</div>
-  ) : (
+  return (
+    // the context provider will make currentUser informations down the component tree
     <UserContext.Provider value={UserContextValue}>
-      <div className="App">
-        <NavMain />
-        <SearchResults data={searchResults} />
+      {isLoading ? (
+        null
+      ) : (
+        <React.Fragment>
+          <HeaderMain
+            navMobileClbk={handleNavMobileStatus}
+            searchClbk={handleSearchResults}
+          />
 
+          {/* <SearchResults data={searchResults} /> */}
 
+          {/* <NavMobile
+            navMobileStatus={navMobileStatus}
+            navMobileClbk={handleNavMobileStatus}
+          /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
@@ -141,7 +159,8 @@ function App() {
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
-      </div>
+      </React.Fragment>
+      )}
     </UserContext.Provider>
   );
 }

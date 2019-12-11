@@ -3,19 +3,17 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="firstView">
-      <header>
-        {/* <img
-          className="intro"
-          src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575532226/MEG/fashion-1031469_1920_ybijwc.jpg"
-          alt="dressing"
-        /> */}
-        <h1 className="lookbook">LOOKBOOK</h1>
+    <div>
+      {/* <header>
+      <HeaderMain/>
+      </header> */}
+      <div className="firstView">
+      <h1 className="lookbook">LOOKBOOK</h1>
         <h2 className="soustitre">Découvrez notre selection</h2>
-      </header>
+        </div>
       <div className="transition">
         <h2>SUIVEZ-NOUS</h2>
-        <h4>#lesminettesengoguette</h4>
+        <h4 className="MEG">#lesminettesengoguette</h4>
       </div>
       <section id="informations">
         <div className="informations">
@@ -63,8 +61,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
-    </div>
+      </div>
   );
 };
 

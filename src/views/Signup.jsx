@@ -6,7 +6,12 @@ export default class Signup extends Component {
   state = {
     userName: "meg",
     email: "meg@meg.com",
-    password: "12345"
+    password: "12345",
+    address: {
+      street: "adresse",
+      zipCode: "12345",
+      city: "Paris"
+    }
   };
 
   handleSubmit = async e => {
@@ -28,6 +33,7 @@ export default class Signup extends Component {
     const { email, password, userName } = this.state;
     return (
       <React.Fragment>
+        <div className="signup">
         <form
           className="form"
           onSubmit={this.handleSubmit}
@@ -66,19 +72,43 @@ export default class Signup extends Component {
             name="password"
             defaultValue={password}
           />
+          <label html="street">Votre adresse</label>
+          <input
+            className="input"
+            id="street"
+            type="text"
+            defaultValue={this.street}
+          />
+
+          <label htmlFor="zipCode">Code Postal</label>
+          <input
+            className="input"
+            id="zipCode"
+            type="number"
+            length="5"
+            defaultValue={this.zipCode}
+          />
+
+          <label htmlFor="city">Ville</label>
+          <input
+            className="input"
+            id="city"
+            type="text"
+            defaultValue={this.city}
+          />
           <button className="btn">
-            Connexion
-            <Link to="/signup" className="link">
-              Ici
-            </Link>{" "}
+            Validez
+            <Link to="/signup" className="link"></Link>{" "}
           </button>
         </form>
         <p className="client">
-          Connectez-vous{" "}
+          Déjà un compte ?{" "}
           <Link to="/signin" className="link">
             Ici
           </Link>
         </p>
+
+        </div>
       </React.Fragment>
     );
   }
