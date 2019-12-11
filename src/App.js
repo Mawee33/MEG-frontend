@@ -4,6 +4,8 @@ import axios from "axios";
 import Menu from "./components/Menu";
 import Dropdown from "./components/Dropdown";
 import SearchBar from "./components/SearchBar";
+import CreateLingerieForm from "./components/CreateLingerieForm";
+import CreateVetementForm from "./components/CreateVetementForm";
 import Home from "./views/Home";
 import Users from "./views/User";
 import History from "./views/History";
@@ -121,7 +123,7 @@ function App() {
           />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/menu" component={Menu} />
+          <Route exact path="/Dropdown" component={Dropdown} />
           <Route path="/users" component={Users} />
           <Route path="/Histoire" component={History} />
           <Route exact path="/vetements" component={ListeVetements} />
@@ -152,8 +154,10 @@ function App() {
               />
             )}
           />
-          <Route path="/FilteredProduct" component={FilteredProduct} />
+          {/* <Route path="/FilteredProduct" component={FilteredProduct} /> */}
           <Route path="/manage-products" component={ManageProducts} />
+          <Route path="/create-vetement" component={CreateVetementForm} />
+          <Route path="/create-lingerie" component={CreateLingerieForm} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/signout" component={SignOut} />

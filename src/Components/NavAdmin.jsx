@@ -8,12 +8,13 @@ import Dropdown from "./Dropdown";
 
 const NavAdmin = (navMobileClbk, navMobileStatus) => {
   return (
-    <nav
-    id="nav_mobile"
-    onClick={navMobileClbk}
-    className={`nav-main ${navMobileStatus ? "is-active" : ""}`}
-  >
-      <Dropdown />
+      <div
+      id="nav_mobile"
+      onClick={navMobileClbk}
+      className={`nav-main ${navMobileStatus ? "is-active" : ""}`}
+      >
+          <Dropdown />
+    <nav className="nav-main">
       <div className="all-list">
       <div className="nav-end2">
       <div className="nav-logo">
@@ -38,6 +39,7 @@ const NavAdmin = (navMobileClbk, navMobileStatus) => {
     </div>
     </div>
   </nav>
+  </div>
 );
 }
 
