@@ -11,6 +11,7 @@ body {
 
 .nav-logo {
   align-items: center;
+  margin-top: 10px;
 }
 
 .nav-main {
@@ -21,6 +22,24 @@ body {
  align-items: flex-end; */
   position: relative;
 }
+
+#nav_mobile {
+  margin-right: 20px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* #nav_mobile .link:hover,
+#nav_mobile .link:active {
+  background: #000000c7;
+} */
+
+
+/* #nav_mobile.is-active {
+  transform: translateX(0);
+  transition: transform .3s ease-out;
+} */
+
 .nav-main a {
   margin-right: 20px;
   color: inherit;
@@ -31,6 +50,13 @@ body {
 
 .nav-end {
   align-items: center;
+  margin-left: auto;
+  display: flex;
+}
+
+.nav-end2 {
+  margin-left: 1000px;
+  justify-content: flex-end;
   margin-left: auto;
   display: flex;
 }

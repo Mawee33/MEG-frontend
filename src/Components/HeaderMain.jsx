@@ -8,7 +8,7 @@ export default function HeaderMain({ navMobileClbk, searchClbk }) {
   return (
     <header id="header_main">
       <NavMain />
-      {/* <NavAdmin navMobileClbk={navMobileClbk}/> */}
+      <NavAdmin navMobileClbk={navMobileClbk}/>
       {/* <SearchBar searchClbk={searchClbk} /> */}
       {/* <NavUser navMobileClbk={navMobileClbk} /> */}
     </header>
