@@ -69,22 +69,27 @@ function App() {
   //   };
 
   const handleDelete = index => {
-    console.log(index);
+    console.log("delete");
     const filteredCart = cart.filter((item, i) => i !== index);
     setCart(filteredCart);
     localStorage.setItem("cart", JSON.stringify(filteredCart));
   };
 
   const handleQuantity = index=> {
+    let deleteItem=null;
     const modifiedQuantity = cart.map((prod, i)=> {
-      if (prod.quantity < 1) {
-        const filteredCart = cart.filter((item, i) => i !== index);
-        setCart(filteredCart);
-        localStorage.setItem("cart", JSON.stringify(filteredCart));
-      }
-    else if(i ===   index ) prod.quantity -= 1
+    if(i ===   index ) {
+        if (prod.quantity <= 1) {
+         deleteItem = index
+      // const filteredCart = cart.filter((item, i) => i !== index);
+      // setCart(filteredCart);
+      // localStorage.setItem("cart", JSON.stringify(filteredCart));
+    }
+    else prod.quantity -= 1}
       return prod;  
-    });
+    })
+
+    if(deleteItem !== null) modifiedQuantity.splice(deleteItem,1);
     console.log("modifed", modifiedQuantity);
     setCart(modifiedQuantity);
     localStorage.setItem("cart", JSON.stringify(modifiedQuantity));
@@ -109,7 +114,12 @@ function App() {
             )}
           />
           <Route exact path="/lingeries" component={ListeLingeries} />
-          <Route path="/lingeries/:id" component={Lingerie} />
+          <Route 
+                path="/lingeries/:id"
+                render={props => (
+                  <Lingerie handleCart={handleCart} cart={cart} {...props} />
+                )}
+          />
           <Route path="/Fabrication" component={Fabrication} />
           <Route path="/SearchBar" component={SearchBar} />
           <Route

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function SearchResults() {
     return (
         <div className="search-results">
-            {!Object.keys(data).length ? null : (
+            {/* {!Object.keys(data).length ? null : (
                <div className="category vetements">
                     <h4 className="title search">Résultats de votre recherche</h4>
                 <ul className="searchlist">
@@ -22,10 +22,10 @@ export default function SearchResults() {
                     <li key={i} className="item">
                         <Link className="link" to={`/lingerie/${v._id}`}>{v.name}</Link>}
                     </li>
-                    ))}
+            ))}
                 </ul>
             )}
-            
+            </div> */}
         </div>
-    )
+                    )
 };

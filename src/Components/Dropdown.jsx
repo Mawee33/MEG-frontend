@@ -41,7 +41,7 @@ class Dropdown extends React.Component {
               </a>
             </li>
             <li>
-              <a href="/ingeries">Lingerie</a>
+              <a href="/lingeries">Lingerie</a>
             </li>
             <li>
               <a href="/history">Histoire de la marque</a>

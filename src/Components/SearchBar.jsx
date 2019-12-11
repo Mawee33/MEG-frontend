@@ -16,7 +16,7 @@ export default function SearchBar(props) {
         className={`input ${!props.status ? "is-active" : ""}`}
         name="search-query"
         type="text"
-        placeholder="search vetements ou lingerie"
+        placeholder="rechercher"
         onChange={handleChange}
       />
     </div>
