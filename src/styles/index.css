@@ -54,17 +54,23 @@ body {
   justify-content: flex-start;
   padding-right: 20px;
 }
-header {
+
+.firstView {
   background-image: url("https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575532226/MEG/fashion-1031469_1920_ybijwc.jpg");
   background-size: cover;
   height: 90vh;
 }
+
 .intro {
   background-size: cover;
   height: 90vh;
 }
 h1 h2 h3 h4 {
   font-family: "Ubuntu", sans-serif;
+}
+
+.MEG {
+  text-align: center;
 }
 
 h1 {
@@ -134,6 +140,7 @@ h6 {
 }
 .footer {
   margin: 20px;
+  text-align: center;
 }
 
 #infos-footer {
