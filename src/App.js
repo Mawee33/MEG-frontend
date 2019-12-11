@@ -152,7 +152,7 @@ function App() {
               />
             )}
           />
-          <Route path="/FilteredProduct" component={FilteredProduct} />
+          {/* <Route path="/FilteredProduct" component={FilteredProduct} /> */}
           <Route path="/manage-products" component={ManageProducts} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />

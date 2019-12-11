@@ -1,46 +1,68 @@
-import React from "react";
+import React, { useContext } from "react";
+import { withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
+import UserContext from "./../auth/UserContext";
+import APIhandler from "./../api/APIHandler";
 
-const NavAdmin = (navMobileClbk, navMobileStatus) => {
+const NavAdmin = props => {
+  const userContext = useContext(UserContext);
+  const { setCurrentUser } = userContext;
+
+  function signOut() {
+    console.log(props);
+    APIhandler.post(`/signout`).finally(() => {
+      props.history.push("/");
+      setCurrentUser(null);
+      console.log("déconnection");
+    });
+  }
+
   return (
     <nav
-    id="nav_mobile"
-    onClick={navMobileClbk}
-    className={`nav-main ${navMobileStatus ? "is-active" : ""}`}
-  >
+      id="nav_mobile"
+      // onClick={props.navMobileClbk}
+      className={`nav-main ${props.navMobileStatus ? "is-active" : ""}`}
+    >
       <Dropdown />
       <div className="all-list">
-      <div className="nav-end2">
-      <div className="nav-logo">
-    <NavLink exact className="link" activeClassName="is-active" to="/">
-    <img
+        <div className="nav-end2">
+          <div className="nav-logo">
+            <NavLink exact className="link" activeClassName="is-active" to="/">
+              <img
                 src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575623422/MEG/Text_logo_xtajgv.jpg"
                 alt="MEG"
               />
-    </NavLink>
-    </div>
-    <NavLink className="link" activeClassName="is-active" to="/">
+            </NavLink>
+          </div>
+          <NavLink className="link" activeClassName="is-active" to="/">
             <FontAwesomeIcon icon={faSearch} />
             <p>&nbsp;</p>
             <input className="search" type="text" />
-    </NavLink>
-    <NavLink className="link" activeClassName="is-active" to="/manage-products">
-      Gérer mes produits
-    </NavLink>
-    <NavLink className="link" activeClassName="is-active" to="/signout">
-      Sign out
-    </NavLink>
-    </div>
-    </div>
-  </nav>
-);
-}
-
+          </NavLink>
+          <NavLink
+            className="link"
+            activeClassName="is-active"
+            to="/manage-products"
+          >
+            Gérer mes produits
+          </NavLink>
+          <button
+            className="link"
+            activeClassName="is-active"
+            onClick={signOut}
+          >
+            Sign out
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 //     <nav className="nav-main">
 //       <Dropdown />
@@ -87,4 +109,4 @@ const NavAdmin = (navMobileClbk, navMobileStatus) => {
 //   );
 // };
 
-export default NavAdmin;
+export default withRouter(NavAdmin);
