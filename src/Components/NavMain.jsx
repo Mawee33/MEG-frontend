@@ -30,7 +30,7 @@ const NavMain = () => {
               />
             </NavLink>
           </div>
-          <NavLink to="/search-bar">
+          <NavLink to="/">
             <FontAwesomeIcon icon={faSearch} />
             <p>&nbsp;</p>
             <input className="search" type="text" />

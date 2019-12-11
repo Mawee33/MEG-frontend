@@ -28,9 +28,14 @@ class Dropdown extends React.Component {
   render() {
     return (
       <div className="dropdown">
-        <div className="button" onClick={this.showDropdownMenu}>
-          {" "}
-          Menu{" "}
+        <div class="clearfix">
+          <div className="button" onClick={this.showDropdownMenu}>
+            {" "} Menu
+            
+            <figure class="expand">
+              <i class="fa fa-close"></i>
+            </figure>
+          </div>
         </div>
 
         {this.state.displayMenu ? (
@@ -41,10 +46,10 @@ class Dropdown extends React.Component {
               </a>
             </li>
             <li>
-              <a href="/ingeries">Lingerie</a>
+              <a href="/Lingeries">Lingerie</a>
             </li>
             <li>
-              <a href="/history">Histoire de la marque</a>
+              <a href="/Histoire">Histoire de la marque</a>
             </li>
             <li>
               <a href="/Fabrication">Fabrication des produits</a>

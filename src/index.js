@@ -8,6 +8,8 @@ import "./styles/lingeries.css";
 import "./styles/menu.css";
 import "./styles/notfound.css";
 import "./styles/sign.css";
+import "./styles/histoire.css";
+import "./styles/fabrication.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";

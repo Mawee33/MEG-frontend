@@ -4,21 +4,15 @@ import APIHandler from "./../api/APIHandler";
 
 export default class Signup extends Component {
   state = {
-    username: "meg",
+    userName: "meg",
     email: "meg@meg.com",
     password: "12345"
   };
 
   handleSubmit = async e => {
     e.preventDefault();
-
-    const fd = new FormData();
-    fd.append("email", this.state.email);
-    fd.append("password", this.state.password);
-    fd.append("username", this.state.username);
-
     try {
-      await APIHandler.post("/signup", fd);
+      await APIHandler.post("/signup", this.state);
       this.props.history.push("/signin");
     } catch (err) {
       console.error(err);
@@ -31,7 +25,7 @@ export default class Signup extends Component {
   };
 
   render() {
-    const { email, password, username } = this.state;
+    const { email, password, userName } = this.state;
     return (
       <React.Fragment>
         <form
@@ -58,8 +52,8 @@ export default class Signup extends Component {
             className="input"
             id="username"
             type="text"
-            name="username"
-            defaultValue={username}
+            name="userName"
+            defaultValue={userName}
           />
 
           <label className="label" htmlFor="password">
@@ -72,7 +66,12 @@ export default class Signup extends Component {
             name="password"
             defaultValue={password}
           />
-          <button className="btn">Connexion</button>
+          <button className="btn">
+            Connexion
+            <Link to="/signup" className="link">
+              Ici
+            </Link>{" "}
+          </button>
         </form>
         <p className="client">
           Connectez-vous{" "}

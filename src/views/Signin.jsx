@@ -48,7 +48,7 @@ export default function Signin(props) {
         />
         <button className="btn">ok</button>
       </form>
-      <p className="parag">
+      <p className="client">
         Créer votre compte client{" "}
         <Link to="/signup" className="link">
           Ici

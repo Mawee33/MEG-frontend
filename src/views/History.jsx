@@ -1,7 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function History() {
-  return <div>
-            <h1>Histoire</h1>
-  </div>;
+  return (
+    <div className="histoire">
+      En cours de création
+      <br /> Retournez à &nbsp;
+      <Link to="/">la page d'accueil</Link>
+    </div>
+  );
 }
