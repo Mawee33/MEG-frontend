@@ -6,51 +6,85 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
 
-const NavMain = () => {
+const NavAdmin = (navMobileClbk, navMobileStatus) => {
   return (
-    <nav className="nav-main">
+    <nav
+    id="nav_mobile"
+    onClick={navMobileClbk}
+    className={`nav-main ${navMobileStatus ? "is-active" : ""}`}
+  >
       <Dropdown />
       <div className="all-list">
-        {/* <div className="nav-menu">
-          <li>
-            <NavLink to="/menu">
-              <FontAwesomeIcon icon={faBars} />
-              <p>&nbsp;</p>
-              Menu
-            </NavLink>
-          </li>
-        </div> */}
-
-        <div className="nav-end">
-          <div className="logo">
-            <NavLink exact to="/">
-              <img
+      <div className="nav-end2">
+      <div className="nav-logo">
+    <NavLink exact className="link" activeClassName="is-active" to="/">
+    <img
                 src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575623422/MEG/Text_logo_xtajgv.jpg"
                 alt="MEG"
               />
-            </NavLink>
-          </div>
-          <NavLink to="/">
+    </NavLink>
+    </div>
+    <NavLink className="link" activeClassName="is-active" to="/">
             <FontAwesomeIcon icon={faSearch} />
             <p>&nbsp;</p>
             <input className="search" type="text" />
-          </NavLink>
+    </NavLink>
+    <NavLink className="link" activeClassName="is-active" to="/manage-products">
+      Gérer mes produits
+    </NavLink>
+    <NavLink className="link" activeClassName="is-active" to="/signout">
+      Sign out
+    </NavLink>
+    </div>
+    </div>
+  </nav>
+);
+}
 
-          <NavLink to="/signin">
-            <FontAwesomeIcon icon={faUser} />
-            <p>&nbsp;</p>
-            Connectez-vous
-          </NavLink>
 
-          <NavLink to="/ShoppingCart">
-            <FontAwesomeIcon icon={faShoppingCart} />
-            <p>&nbsp;</p>
-            Panier
-          </NavLink>
-        </div>
-      </div>
-    </nav>
-  );
-};
+//     <nav className="nav-main">
+//       <Dropdown />
+//       <div className="all-list">
+//         {/* <div className="nav-menu">
+//           <li>
+//             <NavLink to="/menu">
+//               <FontAwesomeIcon icon={faBars} />
+//               <p>&nbsp;</p>
+//               Menu
+//             </NavLink>
+//           </li>
+//         </div> */}
 
-export default NavMain;
+//         <div className="nav-end">
+//           <div className="logo">
+//             <NavLink exact to="/">
+//               <img
+//                 src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575623422/MEG/Text_logo_xtajgv.jpg"
+//                 alt="MEG"
+//               />
+//             </NavLink>
+//           </div>
+//           <NavLink to="/">
+//             <FontAwesomeIcon icon={faSearch} />
+//             <p>&nbsp;</p>
+//             <input className="search" type="text" />
+//           </NavLink>
+
+//           <NavLink to="/signin">
+//             <FontAwesomeIcon icon={faUser} />
+//             <p>&nbsp;</p>
+//             Connectez-vous
+//           </NavLink>
+
+//           {/* <NavLink to="/ShoppingCart">
+//             <FontAwesomeIcon icon={faShoppingCart} />
+//             <p>&nbsp;</p>
+//             Panier
+//           </NavLink> */}
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// };
+
+export default NavAdmin;

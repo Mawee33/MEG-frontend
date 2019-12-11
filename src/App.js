@@ -18,16 +18,19 @@ import FilteredProduct from "./components/FilteredProduct";
 import Footer from "./components/Footer";
 import SignUp from "./views/Signup";
 import SignIn from "./views/Signin";
+import SignOut from "./views/Signin";
 
 //partials
 import HeaderMain from "./components/HeaderMain";
 import searchResults from "./components/SearchResults";
 import NavMobile from "./components/NavMobile";
+import NavAdmin from "./components/NavAdmin";
 
 // auth
 import { useAuth } from "./auth/useAuth";
 import UserContext from "./auth/UserContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute";
+import ManageProducts from "./views/ManageProducts";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -107,20 +110,17 @@ function App() {
     // the context provider will make currentUser informations down the component tree
     <UserContext.Provider value={UserContextValue}>
       {isLoading ? (
-        null
+          <HeaderMain
+          navMobileClbk={handleNavMobileStatus}
+          searchClbk={handleSearchResults}
+        />
       ) : (
         <React.Fragment>
-          <HeaderMain
-            navMobileClbk={handleNavMobileStatus}
-            searchClbk={handleSearchResults}
-          />
-
           {/* <SearchResults data={searchResults} /> */}
-
-          {/* <NavMobile
+          <NavAdmin
             navMobileStatus={navMobileStatus}
             navMobileClbk={handleNavMobileStatus}
-          /> */}
+          />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
@@ -155,8 +155,10 @@ function App() {
             )}
           />
           <Route path="/FilteredProduct" component={FilteredProduct} />
+          <Route path="/manage-products" component={ManageProducts} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/signout" component={SignOut} />
           {/* else => 404 */}
           <Route path="*" component={NotFound} />
         </Switch>
