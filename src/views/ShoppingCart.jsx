@@ -4,7 +4,8 @@ import apiHandler from "../api/APIHandler";
 
 const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
   console.log(cart);
-  const vetementId = match.params.id;
+  const productId = match.params.id;
+  let product;
 
   // useEffect(() => {
   //   axios
@@ -47,11 +48,13 @@ const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
     <div className="background">
       <h1 className="title-vetements">Panier</h1>
 
+<div>
       <div className="all-vetements">
         {!Boolean(cart.length) ? (
           <p>Aucun article dans le panier</p>
         ) : (
           cart.map((c, i) => (
+        product = c.vetement || c.lingerie,
             <ul key={i} className="list-vetements">
               {/* <li>
                 <pre style={{"whiteSpace": "pre-wrap"}}>
@@ -62,19 +65,19 @@ const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
                 <div>
                   <a href={"/cart/" + c._id}>
                     <img
-                      src={c.vetement.image}
-                      alt={c.vetement.name}
+                      src={product.image}
+                      alt={product.name}
                       className="item-vetement-image"
                     />
                   </a>
                 </div>
               </li>
-              <li className="item-vetement">{c.vetement.name}</li>
-              <li className="item-vetement">{c.vetement.description}</li>
+              <li className="item-vetement">{product.name}</li>
+              <li className="item-vetement">{product.description}</li>
               {/* <li className="item-vetement">{l.type}</li>
                 <li className="item-vetement">{l.color}</li> */}
               <li className="item-vetement">{c.size}</li>
-              <li className="item-vetement">{c.vetement.price}€</li>
+              <li className="item-vetement">{product.price}€</li>
               <li className="item-vetement">
                 {c.quantity}{" "}
                 <button
@@ -98,7 +101,7 @@ const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
          
           <div key={i} className="list-vetements">
           <div className="item-vetement">
-          {c.vetement.price * c.quantity}€
+          {product.price * c.quantity }€
           </div>
           </div>
          </li>
@@ -112,7 +115,8 @@ const ShoppingCart = ({ cart, match, handleDelete, handleQuantity }) => {
           <p>0€</p>
         )  : (
           cart.reduce((sum,curr)=> {
-return sum += (curr.vetement.price * curr.quantity)
+            let pdt = curr.vetement || curr.lingerie
+return sum += (pdt.price * curr.quantity ) 
           },0)
           // cart.map((c, i) => (
           // <div key={i} className="list-vetements">
@@ -121,7 +125,8 @@ return sum += (curr.vetement.price * curr.quantity)
           // </div>
           // </div>
           // )) 
-        )}
+        )}€
+      </div>
       </div>
     </div>
   );

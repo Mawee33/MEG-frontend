@@ -6,20 +6,58 @@ const Lingerie = props => {
   console.log(props);
   const lingerieId = props.match.params.id;
   const [lingerie, setLingerie] = useState(null);
+  console.log(props.cart);
+  // const [vetement, setVetement] = useState(null);
+  const [size, setSize] = useState(null);
+  const [qty, setQty] = useState(1);
   useEffect(() => {
     axios
       .get(process.env.REACT_APP_BACKEND_URL + "/lingeries/" + lingerieId)
       .then(res => {
         setLingerie(res.data);
+        setSize(res.data.size[0]);
       })
       .catch(err => {
         console.log(err);
       });
   }, []);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    const myCart = {
+      lingerie: lingerie,
+      size: size,
+      quantity: qty
+    };
+    // localStorage.setItem("cart", JSON.stringify(myCart));
+    props.handleCart(myCart);
+    // const copy = [...props.cart];
+    // copy.push(myCart);
+    // props.handleCart(copy);
+    // console.log(copy)
+    // localStorage.setItem("cart", JSON.stringify(copy));
+    // props.history.push("/ShoppingCart");
+  };
+
+  const handleChange = e => {
+    if (e.target.name === "size") {
+      setSize(e.target.value);
+    } else setQty(e.target.value);
+    console.log("here", e.target.value);
+    console.log(e.target.name);
+    // let size = e.target.size;
+    // let quantity = e.target.quantity;
+
+    // setState({vetement:{...vetement, }})
+  };
+
   if (!lingerie) return <p>Pas de lingerie</p>;
   return (
-    <div className="background">
+    <form
+    onSubmit={handleSubmit}
+    onChange={handleChange}
+    className="background"
+  >
       <ul className="one-vetements">
         <li className="item-vetement">
           <img
@@ -69,7 +107,7 @@ const Lingerie = props => {
           </li>
         </div>
       </ul>
-    </div>
+    </form>
   );
 };
 export default Lingerie;

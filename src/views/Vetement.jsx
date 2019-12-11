@@ -3,7 +3,6 @@ import axios from "axios";
 
 const Vetement = props => {
   const vetementId = props.match.params.id;
-  console.log(props.cart);
   const [vetement, setVetement] = useState(null);
   const [size, setSize] = useState(null);
   const [qty, setQty] = useState(1);
@@ -44,8 +43,6 @@ const Vetement = props => {
     if (e.target.name === "size") {
       setSize(e.target.value);
     } else setQty(e.target.value);
-    console.log("here", e.target.value);
-    console.log(e.target.name);
     // let size = e.target.size;
     // let quantity = e.target.quantity;
 
