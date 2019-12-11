@@ -15,7 +15,7 @@ import ShoppingCart from "./views/ShoppingCart";
 import Vetement from "./views/Vetement";
 import Lingerie from "./views/Lingerie";
 import NotFound from "./views/NotFound";
-import FilteredProduct from "./components/FilteredProduct";
+// import FilteredProduct from "./components/FilteredProduct";
 import Footer from "./components/Footer";
 import SignUp from "./views/Signup";
 import SignIn from "./views/Signin";
@@ -55,17 +55,15 @@ function App() {
     currentUser,
     setCurrentUser
   };
-  // const App = function App(props) {
-  //   const { isLoading } = useAuth();
+  // 
   //   const [navMobileStatus, setNavMobileStatus] = useState(false);
   //   const [searchResults, setSearchResults] = useState([]);
-  //   const [currentUser, setCurrentUser] = useState({});
-  //   // MANDATORY TO GET/SET currentUser according to server response
-  //   // check src/auth/UserContext
-  //   const UserContextValue = {
-  //     currentUser,
-  //     setCurrentUser
-  //   };
+    // MANDATORY TO GET/SET currentUser according to server response
+    // check src/auth/UserContext
+    // const UserContextValue = {
+    //   currentUser,
+    //   setCurrentUser
+    // };
 
   const handleDelete = index => {
     console.log("delete");
@@ -100,6 +98,9 @@ function App() {
     <UserContext.Provider value={UserContextValue}>
       <div className="App">
         <NavMain />
+        <SearchResults data={searchResults} />
+
+
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/menu" component={Menu} />
@@ -133,7 +134,7 @@ function App() {
               />
             )}
           />
-          <Route path="/FilteredProduct" component={FilteredProduct} />
+          {/* <Route path="/FilteredProduct" component={FilteredProduct} /> */}
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           {/* else => 404 */}
