@@ -28,7 +28,7 @@ import SearchResults from "./components/SearchResults";
 import NavMobile from "./components/NavMobile";
 import NavAdmin from "./components/NavAdmin";
 import NavMain from "./components/NavMain";
-
+import NavUser from "./components/NavUser";
 
 // auth
 import { useAuth } from "./auth/useAuth";
@@ -75,15 +75,15 @@ function App() {
     currentUser,
     setCurrentUser
   };
-  // 
+  //
   //   const [navMobileStatus, setNavMobileStatus] = useState(false);
   //   const [searchResults, setSearchResults] = useState([]);
-    // MANDATORY TO GET/SET currentUser according to server response
-    // check src/auth/UserContext
-    // const UserContextValue = {
-    //   currentUser,
-    //   setCurrentUser
-    // };
+  // MANDATORY TO GET/SET currentUser according to server response
+  // check src/auth/UserContext
+  // const UserContextValue = {
+  //   currentUser,
+  //   setCurrentUser
+  // };
 
   const handleDelete = index => {
     console.log("delete");
@@ -92,21 +92,21 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(filteredCart));
   };
 
-  const handleQuantity = index=> {
-    let deleteItem=null;
-    const modifiedQuantity = cart.map((prod, i)=> {
-    if(i ===   index ) {
+  const handleQuantity = index => {
+    let deleteItem = null;
+    const modifiedQuantity = cart.map((prod, i) => {
+      if (i === index) {
         if (prod.quantity <= 1) {
-         deleteItem = index
-      // const filteredCart = cart.filter((item, i) => i !== index);
-      // setCart(filteredCart);
-      // localStorage.setItem("cart", JSON.stringify(filteredCart));
-    }
-    else prod.quantity -= 1}
-      return prod;  
-    })
+          deleteItem = index;
+          // const filteredCart = cart.filter((item, i) => i !== index);
+          // setCart(filteredCart);
+          // localStorage.setItem("cart", JSON.stringify(filteredCart));
+        } else prod.quantity -= 1;
+      }
+      return prod;
+    });
 
-    if(deleteItem !== null) modifiedQuantity.splice(deleteItem,1);
+    if (deleteItem !== null) modifiedQuantity.splice(deleteItem, 1);
     console.log("modifed", modifiedQuantity);
     setCart(modifiedQuantity);
     localStorage.setItem("cart", JSON.stringify(modifiedQuantity));
@@ -116,17 +116,23 @@ function App() {
     // the context provider will make currentUser informations down the component tree
     <UserContext.Provider value={UserContextValue}>
       {navMobileStatus ? (
-        console.log(navMobileStatus),
-          <NavAdmin 
-          navMobileStatusClbk={handleNavMobileStatus}
-          searchClbk={handleSearchResults}
-        />
+        <React.Fragment>
+          <NavAdmin
+            navMobileStatusClbk={handleNavMobileStatus}
+            searchClbk={handleSearchResults}
+          />
+          <NavUser
+            navMobileStatusClbk={handleNavMobileStatus}
+            searchClbk={handleSearchResults}
+          />
+        </React.Fragment>
       ) : (
-          <NavMain
-            navMobileStatus={navMobileStatus}
-            navMobileClbk={handleNavMobileStatus}
-          />)}
-          <React.Fragment>
+        <NavMain
+          navMobileStatus={navMobileStatus}
+          navMobileClbk={handleNavMobileStatus}
+        />
+      )}
+      <React.Fragment>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/Dropdown" component={Dropdown} />
@@ -140,11 +146,11 @@ function App() {
             )}
           />
           <Route exact path="/lingeries" component={ListeLingeries} />
-          <Route 
-                path="/lingeries/:id"
-                render={props => (
-                  <Lingerie handleCart={handleCart} cart={cart} {...props} />
-                )}
+          <Route
+            path="/lingeries/:id"
+            render={props => (
+              <Lingerie handleCart={handleCart} cart={cart} {...props} />
+            )}
           />
           <Route path="/Fabrication" component={Fabrication} />
           <Route path="/SearchBar" component={SearchBar} />
@@ -164,7 +170,12 @@ function App() {
           <Route path="/manage-products" component={ManageProducts} />
           <Route path="/create-vetement" component={CreateVetementForm} />
           <Route path="/create-lingerie" component={CreateLingerieForm} />
-          <Route path="/signin"  render={(props)=> (<SignIn  navMobileStatus={handleNavMobileStatus}  {...props}/>)}/>
+          <Route
+            path="/signin"
+            render={props => (
+              <SignIn navMobileStatus={handleNavMobileStatus} {...props} />
+            )}
+          />
           <Route path="/signup" component={SignUp} />
           <Route path="/signout" component={SignOut} />
           {/* else => 404 */}
@@ -173,6 +184,7 @@ function App() {
         <Footer />
       </React.Fragment>
     </UserContext.Provider>
-      )}
+  );
+}
 
 export default App;

@@ -23,6 +23,15 @@ body {
   position: relative;
 }
 
+.nav-admin {
+  height: 70px;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
 #nav_mobile {
   margin-right: 20px;
   color: inherit;
@@ -34,13 +43,13 @@ body {
   background: #000000c7;
 } */
 
-
 /* #nav_mobile.is-active {
   transform: translateX(0);
   transition: transform .3s ease-out;
 } */
 
-.nav-main a {
+.nav-main a,
+.link-signout {
   margin-right: 20px;
   color: inherit;
   text-decoration: none;
@@ -53,6 +62,12 @@ body {
   margin-left: auto;
   display: flex;
 }
+
+/* .nav-end user{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} */
 
 .nav-end2 {
   margin-left: 1000px;
@@ -164,32 +179,10 @@ h6 {
 .transition {
   margin: 20px;
 }
-.footer {
-  margin: 20px;
-  text-align: center;
-}
-
-#infos-footer {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
-  grid-column-gap: 5%;
-  justify-content: center;
-  padding: 0;
-  width: 100%;
-}
-
-.last-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
-}
-
 .buttons {
   display: flex;
   justify-content: space-around;
-  background-color: #FEE;
+  background-color: #fee;
   padding-top: 100px;
   padding-bottom: 100px;
 }
