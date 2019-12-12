@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import axios from "axios";
+import apiHandler from "./api/APIHandler";
 // import Menu from "./components/Menu";
 import Dropdown from "./components/Dropdown";
 import SearchBar from "./components/SearchBar";
@@ -39,7 +39,7 @@ import ManageProducts from "./views/ManageProducts";
 function App() {
   const [cart, setCart] = useState([]);
   const { isLoggedIn } = useAuth();
-  const [SearchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [navMobileStatus, setNavMobileStatus] = useState(false);
 
@@ -58,11 +58,18 @@ function App() {
   //   setNavMobileStatus(navMobileStatus);
   // };
 
-  const handleSearchResults = results => {
-    if (!results) return setSearchResults([]);
-    if (!results.vetements.length || results.lingeries.length)
-      return setSearchResults(results);
-  };
+  // const handleSearchResults = results => {
+  //   if (!results) return setSearchResults([]);
+  //   if (!results.vetements.length || results.lingeries.length)
+  //     return setSearchResults(results);
+  // };
+
+  function searchProduct(searchValue) {
+    apiHandler.get(`/search?q=${searchValue}`).then(res => {
+      console.log(res.data);
+      setSearchResults([res.data.vetements, res.data.lingeries]);
+    });
+  }
 
   const handleCart = value => {
     const copy = [...cart];
@@ -119,22 +126,35 @@ function App() {
         <React.Fragment>
           <NavAdmin
             navMobileStatusClbk={handleNavMobileStatus}
-            searchClbk={handleSearchResults}
+            // searchClbk={handleSearchResults}
           />
           <NavUser
             navMobileStatusClbk={handleNavMobileStatus}
-            searchClbk={handleSearchResults}
+            // searchClbk={handleSearchResults}
           />
         </React.Fragment>
       ) : (
         <NavMain
           navMobileStatus={navMobileStatus}
           navMobileClbk={handleNavMobileStatus}
+          searchClbk={searchProduct}
         />
       )}
       <React.Fragment>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/"
+            render={props => (
+              console.log("search results", searchResults.length),
+              searchResults.length ? (
+                <SearchResults data={searchResults} />
+              ) : (
+                <Home />
+              )
+            )}
+            // component={searchResults.length ? <SearchResults />: Home}
+          />
           <Route exact path="/Dropdown" component={Dropdown} />
           <Route path="/users" component={Users} />
           <Route path="/Histoire" component={History} />

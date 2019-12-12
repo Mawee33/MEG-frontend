@@ -67,7 +67,6 @@ const NavUser = props => {
             </div>
           </div>
         </React.Fragment>
-        )}
       </nav>
     )
   );
