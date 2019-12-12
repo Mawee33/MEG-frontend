@@ -180,7 +180,6 @@ export default class CreateLingerie extends Component {
               />
               <label for="46">46</label>
             </div>
-          </div>
           <div>
               <input
                 type="checkbox"
@@ -379,6 +378,7 @@ export default class CreateLingerie extends Component {
               />
               <label for="105E">105E</label>
             </div>
+            </div>
 
           <div className="form-item">
             <label htmlFor="price">Prix du produit</label>
@@ -401,7 +401,7 @@ export default class CreateLingerie extends Component {
           <div className="button-create">
             <button className="manage-button" id="button">
               Créer
-              <Link to="/vetements" className="link"></Link>{" "}
+              <Link to="/lingeries" className="link"></Link>{" "}
             </button>
           </div>
         </form>

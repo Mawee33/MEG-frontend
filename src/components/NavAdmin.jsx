@@ -25,7 +25,7 @@ const NavAdmin = props => {
 
   return (
     <nav
-      id="nav_mobile"
+      id="nav_mobile"s
       // onClick={props.navMobileClbk}
       className={`nav-main ${props.navMobileStatus ? "is-active" : ""}`}
     >

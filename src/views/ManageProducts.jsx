@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
 import { withRouter, Link } from "react-router-dom";
 // import vetementModel from "./../models/Vetement";
 import APIHandler from "./../api/APIHandler";
+import UserContext from "../auth/UserContext";
 
 const ManageProducts = ()=> {
-
+  const userContext = useContext(UserContext);
+  const { setCurrentUser } = userContext;
 
     return (
       <div>
