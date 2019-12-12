@@ -39,7 +39,7 @@ export default class CreateVetement extends Component {
       console.log(e.target.files)
       this.setState({ image: e.target.files[0] });
     } else {
-      if (e.target.name === "size")
+      if (e.target.name === "size" || e.target.name === "type")
         this.setState({ size: [...this.state.size, e.target.value] });
       else this.setState({ [e.target.name]: e.target.value });
     }
@@ -105,10 +105,15 @@ export default class CreateVetement extends Component {
             <input type="text" name="description" class="product-create" />
           </div>
 
-          <div className="form-item">
-            <label htmlFor="type">Type du produit</label>
-            <input type="text" name="type" class="product-create" />
-          </div>
+          <label htmlFor="type">Type du produit</label>
+          <select className="form-item" id="category" class="select" required>
+                <option value="robe" >robe</option>
+                <option value="chemise">chemise</option>
+                <option value="tee-shirt">tee-shirt</option>
+                <option value="pull">pull</option>
+                <option value="jupe">jupe</option>
+                <option value="pantalon">Retirement</option>
+            </select>
 
           <div className="form-item">
             <label htmlFor="color">Couleurs disponibles</label>

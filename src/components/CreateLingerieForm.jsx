@@ -38,7 +38,8 @@ export default class CreateLingerie extends Component {
     if (e.target.name === "image") {
       console.log(e.target.files)
       this.setState({ image: e.target.files[0] });
-    } else {
+    } 
+    else {
       if (e.target.name === "size")
         this.setState({ size: [...this.state.size, e.target.value] });
       else this.setState({ [e.target.name]: e.target.value });

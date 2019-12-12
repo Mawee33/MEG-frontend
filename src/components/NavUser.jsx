@@ -18,58 +18,52 @@ const NavUser = props => {
   function signOut() {
     console.log(props);
     APIhandler.post(`/signout`).finally(() => {
-      // props.history.push("/");
       setCurrentUser(null);
-      // props.navMobileStatusClbk();
-      console.log("déconnection");
+      props.history.push("/");
     });
   }
 
   if (isLoading) return null;
 
   return (
-    currentUser &&
-    currentUser.role === "user" && (
-      <nav id="nav_admin" className="nav-main">
-        <React.Fragment>
-          <Dropdown />
-          <div className="all-list">
-            <div className="nav-end">
-              <div className="nav-logo">
-                <NavLink exact to="/">
-                  <img
-                    src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
-                    alt="MEG"
-                  />
-                </NavLink>
-              </div>
-              <NavLink to="/">
-                <FontAwesomeIcon icon={faSearch} />
-                <p>&nbsp;</p>
-                <input className="search" type="text" />
-              </NavLink>
-
-              <span
-                className="link-signout"
-                // activeClassName="is-active"
-                onClick={signOut}
-              >
-                <FontAwesomeIcon icon={faUser} />
-                <p>&nbsp;</p>
-                Deconnexion
-              </span>
-
-              <NavLink to="/ShoppingCart">
-                <FontAwesomeIcon icon={faShoppingCart} />
-                <p>&nbsp;</p>
-                Panier
+    <nav id="nav_admin" className="nav-main">
+      <React.Fragment>
+        <Dropdown />
+        <div className="all-list">
+          <div className="nav-end">
+            <div className="nav-logo">
+              <NavLink exact to="/">
+                <img
+                  src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
+                  alt="MEG"
+                />
               </NavLink>
             </div>
+            <NavLink to="/">
+              <FontAwesomeIcon icon={faSearch} />
+              <p>&nbsp;</p>
+              <input className="search" type="text" />
+            </NavLink>
+
+            <span
+              className="link-signout"
+              // activeClassName="is-active"
+              onClick={signOut}
+            >
+              <FontAwesomeIcon icon={faUser} />
+              <p>&nbsp;</p>
+              Deconnexion
+            </span>
+
+            <NavLink to="/ShoppingCart">
+              <FontAwesomeIcon icon={faShoppingCart} />
+              <p>&nbsp;</p>
+              Panier
+            </NavLink>
           </div>
-        </React.Fragment>
-        )}
-      </nav>
-    )
+        </div>
+      </React.Fragment>
+    </nav>
   );
 };
 

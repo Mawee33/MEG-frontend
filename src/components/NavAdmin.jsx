@@ -18,10 +18,8 @@ const NavAdmin = props => {
   function signOut() {
     console.log(props);
     APIhandler.post(`/signout`).finally(() => {
-      props.history.push("/");
       setCurrentUser(null);
-      props.navMobileStatusClbk();
-      console.log("déconnection");
+      props.history.push("/");
     });
   }
 

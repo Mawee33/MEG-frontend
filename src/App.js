@@ -26,9 +26,7 @@ import SignOut from "./views/Signin";
 import HeaderMain from "./components/HeaderMain";
 import SearchResults from "./components/SearchResults";
 import NavMobile from "./components/NavMobile";
-import NavAdmin from "./components/NavAdmin";
-import NavMain from "./components/NavMain";
-import NavUser from "./components/NavUser";
+import ConditionalNav from "./components/ConditionalNav"
 
 // auth
 import { useAuth } from "./auth/useAuth";
@@ -115,23 +113,7 @@ function App() {
   return (
     // the context provider will make currentUser informations down the component tree
     <UserContext.Provider value={UserContextValue}>
-      {navMobileStatus ? (
-        <React.Fragment>
-          <NavAdmin
-            navMobileStatusClbk={handleNavMobileStatus}
-            searchClbk={handleSearchResults}
-          />
-          <NavUser
-            navMobileStatusClbk={handleNavMobileStatus}
-            searchClbk={handleSearchResults}
-          />
-        </React.Fragment>
-      ) : (
-        <NavMain
-          navMobileStatus={navMobileStatus}
-          navMobileClbk={handleNavMobileStatus}
-        />
-      )}
+      <ConditionalNav />
       <React.Fragment>
         <Switch>
           <Route exact path="/" component={Home} />
