@@ -1,9 +1,9 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import React from "./node_modules/react";
+import { NavLink } from "./node_modules/react-router-dom";
+import { FontAwesomeIcon } from "./node_modules/@fortawesome/react-fontawesome";
+import { faSearch, faBars } from "./node_modules/@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "./node_modules/@fortawesome/free-solid-svg-icons";
+import { faUser } from "./node_modules/@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
 
 const NavMain = () => {
@@ -25,7 +25,7 @@ const NavMain = () => {
           <div className="logo">
             <NavLink exact to="/">
               <img
-                src="hhttps://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
+                src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
                 alt="MEG"
               />
             </NavLink>

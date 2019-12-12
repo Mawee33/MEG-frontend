@@ -1,5 +1,5 @@
-import React from "react";
-import apiHandler from "./../api/APIHandler";
+import React from "./node_modules/react";
+import apiHandler from "../api/APIHandler";
 
 export default function SearchBar(props) {
   const handleChange = async e => {

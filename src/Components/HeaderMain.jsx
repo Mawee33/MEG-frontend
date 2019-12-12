@@ -1,4 +1,4 @@
-import React from "react";
+import React from "./node_modules/react";
 import NavMain from "./NavMain";
 import NavAdmin from "./NavAdmin";
 import NavUser from "./NavUser";
