@@ -5,6 +5,7 @@ import NavUser from "./NavUser";
 import SearchBar from "./SearchBar";
 
 export default function HeaderMain({ navMobileClbk, searchClbk }) {
+
   return (
     <header id="header_main">
       <NavMain navMobileClbk={navMobileClbk}/>
