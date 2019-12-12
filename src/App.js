@@ -27,6 +27,8 @@ import HeaderMain from "./components/HeaderMain";
 import SearchResults from "./components/SearchResults";
 import NavMobile from "./components/NavMobile";
 import NavAdmin from "./components/NavAdmin";
+import NavMain from "./components/NavMain";
+
 
 // auth
 import { useAuth } from "./auth/useAuth";
@@ -36,7 +38,7 @@ import ManageProducts from "./views/ManageProducts";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const { isLoading } = useAuth();
+  const { isLoggedIn } = useAuth();
   const [SearchResults, setSearchResults] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [navMobileStatus, setNavMobileStatus] = useState(false);
@@ -51,6 +53,10 @@ function App() {
   const handleNavMobileStatus = () => {
     setNavMobileStatus(!navMobileStatus);
   };
+
+  // const handleNavMobileStatusReverse = () => {
+  //   setNavMobileStatus(navMobileStatus);
+  // };
 
   const handleSearchResults = results => {
     if (!results) return setSearchResults([]);
@@ -109,18 +115,18 @@ function App() {
   return (
     // the context provider will make currentUser informations down the component tree
     <UserContext.Provider value={UserContextValue}>
-      {isLoading ? (
-          <HeaderMain
-          navMobileClbk={handleNavMobileStatus}
+      {navMobileStatus ? (
+        console.log(navMobileStatus),
+          <NavAdmin 
+          navMobileStatusClbk={handleNavMobileStatus}
           searchClbk={handleSearchResults}
         />
       ) : (
-        <React.Fragment>
-          {/* <SearchResults data={searchResults} /> */}
-          <NavAdmin
+          <NavMain
             navMobileStatus={navMobileStatus}
             navMobileClbk={handleNavMobileStatus}
-          />
+          />)}
+          <React.Fragment>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/Dropdown" component={Dropdown} />
@@ -158,7 +164,7 @@ function App() {
           <Route path="/manage-products" component={ManageProducts} />
           <Route path="/create-vetement" component={CreateVetementForm} />
           <Route path="/create-lingerie" component={CreateLingerieForm} />
-          <Route path="/signin" component={SignIn} />
+          <Route path="/signin"  render={(props)=> (<SignIn  navMobileStatus={handleNavMobileStatus}  {...props}/>)}/>
           <Route path="/signup" component={SignUp} />
           <Route path="/signout" component={SignOut} />
           {/* else => 404 */}
@@ -166,9 +172,7 @@ function App() {
         </Switch>
         <Footer />
       </React.Fragment>
-      )}
     </UserContext.Provider>
-  );
-}
+      )}
 
 export default App;

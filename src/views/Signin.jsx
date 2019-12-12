@@ -1,20 +1,24 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import { withRouter} from "react-router-dom";
+
 
 import UserContext from "./../auth/UserContext";
 import APIHandler from "./../api/APIHandler";
 
-export default function Signin(props) {
+export default withRouter(function Signin(props) {
   const [email, setEmail] = useState("meg@meg.com");
   const [password, setPassword] = useState("12345");
   const userContext = useContext(UserContext);
   const { setCurrentUser } = userContext;
 
   const handleSubmit = async e => {
+    console.log("heloo", props)
     e.preventDefault();
     try {
       const apiRes = await APIHandler.post("/signin", { email, password });
       setCurrentUser(apiRes.data.currentUser);
+      props.navMobileStatus()
       props.history.push("/");
     } catch (err) {
       console.log(err);
@@ -46,7 +50,7 @@ export default function Signin(props) {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        <button className="btn">ok</button>
+        <button className="btn" >ok</button>
       </form>
       <p className="client">
         Créer votre compte client{" "}
@@ -56,4 +60,4 @@ export default function Signin(props) {
       </p>
     </React.Fragment>
   );
-}
+})
