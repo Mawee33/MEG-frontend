@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
+import "./styles/footer.css";
 import "./styles/reset.css";
 import "./styles/vetements.css";
 import "./styles/vetement.css";

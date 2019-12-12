@@ -22,10 +22,10 @@ const NavMain = () => {
         </div> */}
 
         <div className="nav-end">
-          <div className="logo">
+          <div className="nav-logo">
             <NavLink exact to="/">
               <img
-                src="hhttps://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
+                src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
                 alt="MEG"
               />
             </NavLink>

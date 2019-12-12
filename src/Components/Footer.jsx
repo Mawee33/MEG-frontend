@@ -5,13 +5,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer">
-        <p>RETROUVEZ-NOUS SUR LES RESEAUX SOCIAUX</p>
-        <FontAwesomeIcon icon={["fab", "instagram"]} />
-        <p>&nbsp;</p>
-        <FontAwesomeIcon icon={["fab", "pinterest"]} />
-        <p>&nbsp;</p>
-        <FontAwesomeIcon icon={["fab", "facebook"]} />
+      <footer id="footer">
+        <div className="transition">
+          <h2>RETROUVEZ-NOUS SUR LES RESEAUX SOCIAUX</h2>
+        </div>
+        <div className="logos-socialmedias">
+          <div>
+            <FontAwesomeIcon icon={["fab", "instagram"]} /> <p>&nbsp;</p>
+          </div>
+          <div>
+            <FontAwesomeIcon icon={["fab", "pinterest"]} /> <p>&nbsp;</p>{" "}
+          </div>
+
+          <div>
+            <FontAwesomeIcon icon={["fab", "facebook"]} />
+          </div>
+        </div>
+
         <div id="infos-footer">
           <div className="last-info">
             <h6>LIVRAISON</h6>
@@ -30,6 +40,8 @@ const Footer = () => {
             <p className="legal">Offerts à partir de 80€ d'achat (France)</p>
           </div>
         </div>
+
+        <div className="signature"> Marie et Véro - dec 2019 - &copy; MEG </div>
       </footer>
     </div>
   );
