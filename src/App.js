@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
-import Menu from "./components/Menu";
+// import Menu from "./components/Menu";
 import Dropdown from "./components/Dropdown";
 import SearchBar from "./components/SearchBar";
 import CreateLingerieForm from "./components/CreateLingerieForm";

@@ -28,12 +28,12 @@ class Dropdown extends React.Component {
   render() {
     return (
       <div className="dropdown">
-        <div class="clearfix">
+        <div className="clearfix">
           <div className="button" onClick={this.showDropdownMenu}>
-            {" "} Menu
-            
-            <figure class="expand">
-              <i class="fa fa-close"></i>
+            {" "}
+            Menu
+            <figure className="expand">
+              <i className="fa fa-close"></i>
             </figure>
           </div>
         </div>

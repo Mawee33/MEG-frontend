@@ -25,7 +25,7 @@ const NavMain = () => {
           <div className="logo">
             <NavLink exact to="/">
               <img
-                src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575623422/MEG/Text_logo_xtajgv.jpg"
+                src="hhttps://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
                 alt="MEG"
               />
             </NavLink>

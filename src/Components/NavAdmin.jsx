@@ -34,7 +34,7 @@ const NavAdmin = props => {
           <div className="nav-logo">
             <NavLink exact className="link" activeClassName="is-active" to="/">
               <img
-                src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1575623422/MEG/Text_logo_xtajgv.jpg"
+                src="https://res.cloudinary.com/dfnnpxhx9/image/upload/v1576138123/MEG/Text_logo_2_mnback.jpg"
                 alt="MEG"
               />
             </NavLink>

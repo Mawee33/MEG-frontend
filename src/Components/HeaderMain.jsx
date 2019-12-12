@@ -9,7 +9,7 @@ export default function HeaderMain({ navMobileClbk, searchClbk }) {
     <header id="header_main">
       <NavMain />
       <NavAdmin navMobileClbk={navMobileClbk}/>
-      {/* <SearchBar searchClbk={searchClbk} /> */}
+      <SearchBar searchClbk={searchClbk} />
       {/* <NavUser navMobileClbk={navMobileClbk} /> */}
     </header>
   );
