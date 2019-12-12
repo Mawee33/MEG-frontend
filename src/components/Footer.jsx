@@ -1,6 +1,6 @@
-import React from "./node_modules/react";
+import React from "react";
 // import { Footer } from "react-router-dom";
-import { FontAwesomeIcon } from "./node_modules/@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
   return (

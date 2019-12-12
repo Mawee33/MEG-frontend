@@ -1,10 +1,10 @@
-import React, { useContext } from "./node_modules/react";
-import { withRouter } from "./node_modules/react-router-dom";
-import { NavLink } from "./node_modules/react-router-dom";
-import { FontAwesomeIcon } from "./node_modules/@fortawesome/react-fontawesome";
-import { faSearch, faBars } from "./node_modules/@fortawesome/free-solid-svg-icons";
-import { faShoppingCart } from "./node_modules/@fortawesome/free-solid-svg-icons";
-import { faUser } from "./node_modules/@fortawesome/free-solid-svg-icons";
+import React, { useContext } from "react";
+import { withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
 import UserContext from "../auth/UserContext";
 import APIhandler from "../api/APIHandler";
