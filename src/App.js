@@ -121,7 +121,7 @@ function App() {
   return (
     // the context provider will make currentUser informations down the component tree
     <UserContext.Provider value={UserContextValue}>
-      <ConditionalNav />
+      <ConditionalNav searchClbk={searchProduct}/>
       <React.Fragment>
         <Switch>
           <Route

@@ -4,8 +4,9 @@ import { useAuth } from "./../auth/useAuth";
 import NavAdmin from "./NavAdmin";
 import NavMain from "./NavMain";
 import NavUser from "./NavUser";
+import SearchBar from "./SearchBar";
 
-export default function ConditionalNav() {
+export default function ConditionalNav(props) {
   // const userContext = useContext(UserContext);
   //   const { setCurrentUser } = userContext;
 
@@ -14,6 +15,7 @@ export default function ConditionalNav() {
   if (isLoading) return null;
   return (
     <>
+    <SearchBar searchClbk={props.searchClbk}/>
       {!currentUser && <NavMain />}
       {currentUser && currentUser.role === "user" && <NavUser />}
       {currentUser && currentUser.role === "admin" && <NavAdmin />}
