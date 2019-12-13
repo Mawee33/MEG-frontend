@@ -9,6 +9,7 @@ import Dropdown from "./Dropdown";
 import UserContext from "./../auth/UserContext";
 import APIhandler from "./../api/APIHandler";
 import { useAuth } from "./../auth/useAuth";
+import SearchBar from "./SearchBar";
 
 const NavUser = props => {
   const { currentUser, isLoading } = useAuth();
@@ -41,8 +42,9 @@ const NavUser = props => {
             </div>
             <NavLink to="/">
               <FontAwesomeIcon icon={faSearch} />
-              <p>&nbsp;</p>
-              <input className="search" type="text" />
+              <SearchBar searchClbk={props.searchClbk} />
+              {/* <p>&nbsp;</p>
+            <input className="search" type="text" /> */}
             </NavLink>
 
             <span

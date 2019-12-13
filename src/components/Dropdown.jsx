@@ -58,7 +58,7 @@ class Dropdown extends React.Component {
               <a href="/User">Votre compte</a>
             </li>
             <li>
-              <a href="/">On reste en contact</a>
+              <a href="/Contact">On reste en contact</a>
             </li>
           </ul>
         ) : null}

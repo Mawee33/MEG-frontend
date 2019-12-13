@@ -21,12 +21,13 @@ import Footer from "./components/Footer";
 import SignUp from "./views/Signup";
 import SignIn from "./views/Signin";
 import SignOut from "./views/Signin";
+import Contact from "./views/Contact";
 
 //partials
 import HeaderMain from "./components/HeaderMain";
 import SearchResults from "./components/SearchResults";
 import NavMobile from "./components/NavMobile";
-import ConditionalNav from "./components/ConditionalNav"
+import ConditionalNav from "./components/ConditionalNav";
 
 // auth
 import { useAuth } from "./auth/useAuth";
@@ -139,6 +140,7 @@ function App() {
           <Route exact path="/Dropdown" component={Dropdown} />
           <Route path="/users" component={Users} />
           <Route path="/Histoire" component={History} />
+          <Route path="/Contact" component={Contact} />
           <Route exact path="/vetements" component={ListeVetements} />
           <Route
             path="/vetements/:id"
