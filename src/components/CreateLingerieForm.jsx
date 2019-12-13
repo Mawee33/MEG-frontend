@@ -21,8 +21,8 @@ export default class CreateLingerie extends Component {
     fd.append("description", this.state.description);
     fd.append("type", this.state.type);
     fd.append("price", this.state.price);
-    fd.append("quantity", this.state.quantity);
-    fd.append("size", this.state.size);
+    fd.append("quantity", JSON.stringify(this.state.quantity));
+    fd.append(Array.isArray(this.state.size));
 
     try {
       await APIHandler.post("/lingeries", fd);
@@ -36,10 +36,10 @@ export default class CreateLingerie extends Component {
   handleChange = e => {
     console.log(e.target);
     if (e.target.name === "image") {
-      console.log(e.target.files)
+      console.log(e.target.files);
       this.setState({ image: e.target.files[0] });
-    } 
-      if (e.target.name === "size") {
+    }
+    if (e.target.name === "size") {
       let copy = [...this.state.size];
       copy.push(e.target.value);
       this.setState({ size: copy });
@@ -181,7 +181,7 @@ export default class CreateLingerie extends Component {
               />
               <label for="46">46</label>
             </div>
-          <div>
+            <div>
               <input
                 type="checkbox"
                 name="size"
@@ -379,7 +379,7 @@ export default class CreateLingerie extends Component {
               />
               <label for="105E">105E</label>
             </div>
-            </div>
+          </div>
 
           <div className="form-item">
             <label htmlFor="price">Prix du produit</label>

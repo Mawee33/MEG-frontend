@@ -11,7 +11,7 @@ const ManageProducts = ()=> {
 
     return (
       <div>
-        <h1>Créer un article</h1>
+        <h1 className="title-vetements">Créer un article</h1>
         <div className="buttons">
         <a href="/create-vetement" className="manage-button">
           Créer un vêtement
