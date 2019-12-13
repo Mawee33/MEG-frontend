@@ -31,7 +31,7 @@ export default function SearchResults({ data }) {
                   </li>
                 ))}
             </ul>
-            )}
+            
           </div>
         </React.Fragment>
       )}

@@ -40,12 +40,12 @@ const NavUser = props => {
                 />
               </NavLink>
             </div>
-            <NavLink to="/">
+            {/* <NavLink to="/">
               <FontAwesomeIcon icon={faSearch} />
               <SearchBar searchClbk={props.searchClbk} />
-              {/* <p>&nbsp;</p>
-            <input className="search" type="text" /> */}
-            </NavLink>
+              <p>&nbsp;</p>
+            <input className="search" type="text" /> 
+            </NavLink> */}
 
             <span
               className="link-signout"

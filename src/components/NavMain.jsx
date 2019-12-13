@@ -31,11 +31,11 @@ const NavMain = (props) => {
               />
             </NavLink>
           </div>
-          <NavLink to="/">
+          {/* <NavLink to="/">
             <FontAwesomeIcon icon={faSearch} />
-            {/* <p>&nbsp;</p>
-            <input className="search" type="text" /> */}
-          </NavLink>
+             <p>&nbsp;</p>
+            <input className="search" type="text" /> 
+          </NavLink> */}
 
           <NavLink to="/signin">
             <FontAwesomeIcon icon={faUser} />
