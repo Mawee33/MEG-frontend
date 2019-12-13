@@ -39,11 +39,11 @@ export default class CreateLingerie extends Component {
       console.log(e.target.files)
       this.setState({ image: e.target.files[0] });
     } 
-    else {
-      if (e.target.name === "size")
-        this.setState({ size: [...this.state.size, e.target.value] });
-      else this.setState({ [e.target.name]: e.target.value });
-    }
+      if (e.target.name === "size") {
+      let copy = [...this.state.size];
+      copy.push(e.target.value);
+      this.setState({ size: copy });
+    } else this.setState({ [e.target.name]: e.target.value });
   };
 
   // useEffect(() => {
