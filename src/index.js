@@ -13,6 +13,7 @@ import "./styles/histoire.css";
 import "./styles/fabrication.css";
 import "./styles/form.css";
 import "./styles/search.css";
+import "./styles/contact.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";

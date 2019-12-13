@@ -5,7 +5,7 @@ import FormContact from "./../components/FormContact";
 export default function Contact() {
   return (
     <React.Fragment>
-      <p className="contact">
+      <p className="connection2">
         <br />
       </p>
       <hr />

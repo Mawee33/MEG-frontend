@@ -25,32 +25,34 @@ export default class FormContact extends Component {
 
   render() {
     return (
-      <form
-        onChange={this.handleChange}
-        onSubmit={this.handleSubmit}
-        className="form"
-      >
-        <h1 className="title">On reste en contact</h1>
-        <label className="label" htmlFor="from">
-          email
-        </label>
-        <input className="input" id="from" type="text" name="from" />
-        <label className="label" htmlFor="subject">
-          Votre message
-        </label>
-        <input className="input" id="subject" type="text" name="subject" />
-        <label className="label" htmlFor="message">
-          Exprimez-vous !
-        </label>
-        <textarea
-          className="input"
-          name="message"
-          id="message"
-          cols="30"
-          rows="10"
-        ></textarea>
-        <button className="btn">Validez</button>
-      </form>
+      <div className="contact">
+        <form
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+          className="form"
+        >
+          <h4 className="connection2">On reste en contact</h4>
+          <label className="label" htmlFor="from">
+            Votre email
+          </label>
+          <input className="input" id="from" type="text" name="from" />
+          <label className="label" htmlFor="subject">
+            Votre message
+          </label>
+          <input className="input-message" id="subject" type="text" name="subject" />
+          <label className="label" htmlFor="message">
+            Exprimez-vous !
+          </label>
+          <textarea
+            className="input"
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <button className="btn-sign">Validez</button>
+        </form>
+      </div>
     );
   }
 }
