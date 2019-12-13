@@ -21,8 +21,9 @@ export default class CreateLingerie extends Component {
     fd.append("description", this.state.description);
     fd.append("type", this.state.type);
     fd.append("price", this.state.price);
-    fd.append("quantity", JSON.stringify(this.state.quantity));
-    fd.append(Array.isArray(this.state.size));
+    fd.append("quantity", this.state.quantity);
+    fd.append("size", JSON.stringify(this.state.size));
+    console.log(Array.isArray(this.state.size));
 
     try {
       await APIHandler.post("/lingeries", fd);
@@ -106,10 +107,23 @@ export default class CreateLingerie extends Component {
             <input type="text" name="description" class="product-create" />
           </div>
 
-          <div className="form-item">
-            <label htmlFor="type">Type du produit</label>
-            <input type="text" name="type" class="product-create" />
-          </div>
+          <label htmlFor="type">Type du produit</label>
+          <select
+            className="form-item"
+            id="category"
+            name="type"
+            class="select"
+            required
+          >
+            <option value="-1" disabled selected>
+              Choisir un type
+            </option>
+            <option value="soutien-gorge">soutien-gorge</option>
+            <option value="culotte">culotte</option>
+            <option value="maillot de bain">maillot de bain</option>
+            <option value="homewear">homewear</option>
+            <option value="pyjama">pyjama</option>
+          </select>
 
           <div className="form-item">
             <label htmlFor="color">Couleurs disponibles</label>
