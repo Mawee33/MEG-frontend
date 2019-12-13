@@ -123,7 +123,7 @@ export default class CreateVetement extends Component {
             <option value="tee-shirt">tee-shirt</option>
             <option value="pull">pull</option>
             <option value="jupe">jupe</option>
-            <option value="pantalon">Retirement</option>
+            <option value="pantalon">pantalon</option>
           </select>
 
           <div className="form-item">
