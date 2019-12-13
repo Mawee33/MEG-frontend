@@ -36,7 +36,7 @@ const ListeLingeries = props => {
                   </a>
                 </div>
                     </li>
-                <li className="item-vetement">{l.name}</li>
+                <li className="item-vetement" id="name">{l.name}</li>
                 <li className="item-vetement">{l.description}</li>
                 {/* <li className="item-vetement">{l.type}</li>
                 <li className="item-vetement">{l.color}</li> */}

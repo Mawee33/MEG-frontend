@@ -47,7 +47,7 @@ const NavUser = props => {
             <input className="search" type="text" /> 
             </NavLink> */}
 
-            <span
+            <a
               className="link-signout"
               // activeClassName="is-active"
               onClick={signOut}
@@ -55,7 +55,7 @@ const NavUser = props => {
               <FontAwesomeIcon icon={faUser} />
               <p>&nbsp;</p>
               Deconnexion
-            </span>
+            </a>
 
             <NavLink to="/ShoppingCart">
               <FontAwesomeIcon icon={faShoppingCart} />

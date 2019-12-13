@@ -36,7 +36,7 @@ const ListeVetements = props => {
                   </a>
                 </div>
               </li>
-              <li className="item-vetement">{v.name}</li>
+              <li className="item-vetement" id="name">{v.name}</li>
               <li className="item-vetement">{v.description}</li>
               {/* <li className="item-vetement">{v.type}</li>
                 <li className="item-vetement">{v.color}</li> */}

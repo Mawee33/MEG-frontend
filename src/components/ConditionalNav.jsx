@@ -5,6 +5,8 @@ import NavAdmin from "./NavAdmin";
 import NavMain from "./NavMain";
 import NavUser from "./NavUser";
 import SearchBar from "./SearchBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function ConditionalNav(props) {
   // const userContext = useContext(UserContext);
@@ -15,10 +17,16 @@ export default function ConditionalNav(props) {
   if (isLoading) return null;
   return (
     <>
-    <SearchBar searchClbk={props.searchClbk}/>
-      {!currentUser && <NavMain />}
-      {currentUser && currentUser.role === "user" && <NavUser />}
-      {currentUser && currentUser.role === "admin" && <NavAdmin />}
+    <div className="search-into">
+      {!currentUser && <NavMain className="nav-search"/>}
+      {currentUser && currentUser.role === "user" && <NavUser className="nav-search"/>}
+      {currentUser && currentUser.role === "admin" && <NavAdmin className="nav-search"/>}
+      <div className="search-icon">
+      <FontAwesomeIcon icon={faSearch} className="loupe"/>
+      <p>&nbsp;</p>
+      <SearchBar  className="search-in" searchClbk={props.searchClbk}/>
+      </div>
+      </div>
     </>
   );
 }

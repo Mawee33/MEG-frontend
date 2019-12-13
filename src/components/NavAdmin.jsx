@@ -60,13 +60,13 @@ const NavAdmin = props => {
               >
                 Gérer mes produits
               </NavLink>
-              <button
+              <a
                 className="link"
                 activeClassName="is-active"
                 onClick={signOut}
               >
                 Sign out
-              </button>
+              </a>
             </div>
           </div>
         </React.Fragment>

@@ -22,8 +22,9 @@ export default class CreateVetement extends Component {
     fd.append("type", this.state.type);
     fd.append("price", this.state.price);
     fd.append("quantity", this.state.quantity);
-    fd.append("size", this.state.size);
-
+    fd.append("size", JSON.stringify(this.state.size));
+    console.log(Array.isArray(this.state.size));
+    
     try {
       await APIHandler.post("/vetements", fd);
       console.log("terminé");
@@ -36,13 +37,15 @@ export default class CreateVetement extends Component {
   handleChange = e => {
     console.log(e.target);
     if (e.target.name === "image") {
-      console.log(e.target.files)
+      console.log(e.target.files);
       this.setState({ image: e.target.files[0] });
-    } if (e.target.name === "size")
-       { this.setState({ size: [...this.state.size, e.target.value] });}
-      else this.setState({ [e.target.name]: e.target.value });
-
     }
+    if (e.target.name === "size") {
+      let copy = [...this.state.size];
+      copy.push(e.target.value);
+      this.setState({ size: copy });
+    } else this.setState({ [e.target.name]: e.target.value });
+  };
 
   // useEffect(() => {
   //   axios
@@ -105,15 +108,23 @@ export default class CreateVetement extends Component {
           </div>
 
           <label htmlFor="type">Type du produit</label>
-          <select className="form-item" id="category" name="type" class="select" required>
-                <option value="-1"  disabled selected>Choisir un type</option>
-                <option value="robe" >robe</option>
-                <option value="chemise">chemise</option>
-                <option value="tee-shirt">tee-shirt</option>
-                <option value="pull">pull</option>
-                <option value="jupe">jupe</option>
-                <option value="pantalon">Retirement</option>
-            </select>
+          <select
+            className="form-item"
+            id="category"
+            name="type"
+            class="select"
+            required
+          >
+            <option value="-1" disabled selected>
+              Choisir un type
+            </option>
+            <option value="robe">robe</option>
+            <option value="chemise">chemise</option>
+            <option value="tee-shirt">tee-shirt</option>
+            <option value="pull">pull</option>
+            <option value="jupe">jupe</option>
+            <option value="pantalon">Retirement</option>
+          </select>
 
           <div className="form-item">
             <label htmlFor="color">Couleurs disponibles</label>

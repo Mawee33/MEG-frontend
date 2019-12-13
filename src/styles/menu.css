@@ -21,7 +21,7 @@
   z-index: 1;
   position: absolute;
   max-width: 800px;
-  min-width: 300px;
+  min-width: 100px;
   /* margin: 1rem auto; */
   background-color: white;
   overflow: hidden;
@@ -35,6 +35,7 @@
 
 .dropdown .clearfix {
   cursor: pointer;
+  width: 100px;
   /* padding: 1rem; */
 }
 
@@ -49,6 +50,7 @@
 .dropdown .button {
   background-color: rgb(238, 175, 15) !important;
   transition: transform 350ms ease-in-out;
+  width: 100px;
 }
 
 .dropdown a {

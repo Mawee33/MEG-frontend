@@ -65,7 +65,7 @@ const Vetement = props => {
           />
         </li>
         <div className="text-vetement">
-          <li className="item-vetement">{vetement.name}</li>
+          <li className="item-vetement" id="name">{vetement.name}</li>
           <li className="item-vetement">
             description : {vetement.description}
           </li>

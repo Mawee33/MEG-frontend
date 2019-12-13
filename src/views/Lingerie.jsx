@@ -67,7 +67,7 @@ const Lingerie = props => {
           />
         </li>
         <div className="text-vetement">
-          <li className="item-vetement">{lingerie.name}</li>
+          <li className="item-vetement" id="name">{lingerie.name}</li>
           <li className="item-vetement">
             description : {lingerie.description}
           </li>

@@ -7,7 +7,7 @@ export default function SearchResults({ data }) {
       {!data.length ? null : (
         <React.Fragment>
           <div className="category vetements">
-            <h4 className="title search">Résultats de votre recherche</h4>
+            <h2 className="title search">Résultats de votre recherche vêtements</h2>
             <ul className="searchlist">
               {data[0].length &&
                 data[0].map((v, i) => (
@@ -20,12 +20,12 @@ export default function SearchResults({ data }) {
             </ul>
           </div>
           <div className="category lingerie">
-            <h4 className="title search">Résultats de la recherche</h4>
+            <h2 className="title search">Résultats de la recherche lingerie</h2>
             <ul className="searchlist">
               {data[1].length &&
                 data[1].map((v, i) => (
                   <li key={i} className="item">
-                    <Link className="link" to={`/lingerie/${v._id}`}>
+                    <Link className="link" to={`/lingeries/${v._id}`}>
                       {v.name}
                     </Link>
                   </li>

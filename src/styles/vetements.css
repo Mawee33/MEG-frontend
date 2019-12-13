@@ -18,13 +18,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 20px !important;
+  margin-top: 20px !important;
   border: 1px solid white;
   background-color: white;
   padding-bottom: 10px;
   padding-top: 10px;
   width: 300px;
+  text-align: center;
 }
 
 .item-vetement {
@@ -74,4 +75,8 @@
   padding-top: 10px;
   width: 100%;
   margin-left: 20px;
+}
+
+#name {
+  font-weight: bold;
 }

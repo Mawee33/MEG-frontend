@@ -12,6 +12,7 @@ import "./styles/sign.css";
 import "./styles/histoire.css";
 import "./styles/fabrication.css";
 import "./styles/form.css";
+import "./styles/search.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
