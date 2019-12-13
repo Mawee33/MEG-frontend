@@ -5,7 +5,7 @@ import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
-import SearchBar from "./SearchBar";
+
 
 const NavMain = (props) => {
   return (
@@ -33,7 +33,6 @@ const NavMain = (props) => {
           </div>
           <NavLink to="/">
             <FontAwesomeIcon icon={faSearch} />
-            <SearchBar searchClbk={props.searchClbk}/>
             {/* <p>&nbsp;</p>
             <input className="search" type="text" /> */}
           </NavLink>
